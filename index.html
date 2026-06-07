@@ -101,7 +101,7 @@
             background-color: #ddd;
             border: 2px dashed #999;
             border-radius: 10px;
-            height: 260px;
+            min-height: 240px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -110,6 +110,16 @@
             margin: 20px 0;
             text-align: center;
             padding: 20px;
+        }
+
+        .large-placeholder {
+            min-height: 420px;
+        }
+
+        .caption {
+            color: #666;
+            font-size: 14px;
+            margin-top: -10px;
         }
 
         .room-grid {
@@ -220,15 +230,19 @@
 
             <h3>Project Media</h3>
 
-            <div class="placeholder-image">
+            <div class="placeholder-image large-placeholder">
                 Placeholder: Gameplay Video / Level Walkthrough<br>
                 Later you can replace this with a YouTube video, GIF, or recorded gameplay clip.
             </div>
 
-            <div class="placeholder-image">
+            <div class="placeholder-image large-placeholder">
                 Placeholder: Top-Down Level Map<br>
                 Later you can replace this with your refined level diagram.
             </div>
+
+            <p class="caption">
+                Placeholder media will be replaced after the whitebox is polished and recorded.
+            </p>
 
             <h3>Design Goals</h3>
             <ul>
