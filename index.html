@@ -2,124 +2,376 @@
 <html>
 <head>
     <title>Chris Wang Portfolio</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f5f2;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        header {
+            padding: 70px 0 50px;
+            border-bottom: 1px solid #d0d0d0;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        header h2 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        header p {
+            max-width: 720px;
+            font-size: 18px;
+            margin-top: 24px;
+        }
+
+        nav {
+            margin-top: 30px;
+        }
+
+        nav a {
+            margin-right: 20px;
+            color: #222;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            margin-top: 60px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid #d0d0d0;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 24px;
+            margin-top: 35px;
+        }
+
+        h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .project-intro {
+            background-color: white;
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+        }
+
+        .tag-list {
+            margin-top: 20px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #e7e7df;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin: 4px 4px 4px 0;
+            font-size: 14px;
+        }
+
+        .placeholder-image {
+            background-color: #ddd;
+            border: 2px dashed #999;
+            border-radius: 10px;
+            height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 25px;
+        }
+
+        .room-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 22px;
+        }
+
+        .room-card h4 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .room-card ul {
+            padding-left: 20px;
+        }
+
+        .note-box {
+            background-color: #fff7dd;
+            border-left: 5px solid #d6a400;
+            padding: 18px 22px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .skills-list li {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px 14px;
+            border-radius: 8px;
+        }
+
+        footer {
+            padding: 50px 0;
+            color: #555;
+        }
+
+        @media (max-width: 760px) {
+            header h1 {
+                font-size: 36px;
+            }
+
+            .room-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 40px;
-    line-height: 1.6;
-  }
-  nav ul {
-    list-style-type: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-  }
-  nav a {
-    text-decoration: none;
-    color: darkblue;
-  }
-  section {
-    margin-top: 50px;
-  }
-  h1, h2, h3, h4 {
-    margin-bottom: 10px;
-  }
-</style>
+
 <body>
-    <h1>Chris Wang</h1>
-    <h2>Combat / Level Designer</h2>
+    <div class="container">
 
-    <p>
-        I design combat encounters, level spaces, and player learning experiences for action and shooter games.
-    </p>
+        <header>
+            <h1>Chris Wang</h1>
+            <h2>Combat / Level Designer</h2>
 
-    <hr>
+            <p>
+                I design combat encounters, level spaces, and player learning experiences for action and shooter games.
+            </p>
 
-    <h2>Featured Project</h2>
+            <nav>
+                <a href="#project">Featured Project</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
 
-    <h3>FPS Tutorial Level — Information Creates Advantage</h3>
+        <section id="project">
+            <h2>Featured Project</h2>
 
-    <p>
-        This is a first-level FPS prototype designed to teach players that gathering information,
-        choosing good positions, and planning movement can create advantages in combat.
-    </p>
+            <div class="project-intro">
+                <h3>FPS Tutorial Level — Information Creates Advantage</h3>
 
-    <h4>Design Goals</h4>
-    <ul>
-        <li>Teach basic movement, dash, cover, and shooting.</li>
-        <li>Encourage players to observe before entering combat.</li>
-        <li>Use glass floors, high platforms, and portals to reward information gathering.</li>
-        <li>Introduce optional exploration through a hidden portal room.</li>
-        <li>End with a combat test where players must act carefully under incomplete information.</li>
-    </ul>
+                <p>
+                    This is a first-level FPS prototype designed to teach players that gathering information,
+                    choosing good positions, and planning movement can create advantages in combat.
+                </p>
 
-    <h4>Level Flow</h4>
-    <ol>
-        <li><strong>Start Area:</strong> Learn movement and basic navigation.</li>
-        <li><strong>First Combat Room:</strong> Learn dash and target priority under pressure.</li>
-        <li><strong>Glass Observation Room:</strong> Observe enemy positions before committing to combat.</li>
-        <li><strong>Portal Bonus Room:</strong> Reward curiosity and route planning.</li>
-        <li><strong>Final Combat Room:</strong> Test player awareness with visible threats and hidden melee enemies.</li>
-    </ol>
+                <div class="tag-list">
+                    <span class="tag">Level Design</span>
+                    <span class="tag">Combat Design</span>
+                    <span class="tag">Tutorial Level</span>
+                    <span class="tag">FPS</span>
+                    <span class="tag">UE Whitebox</span>
+                </div>
+            </div>
 
-    <h4>Core Design Idea</h4>
-    <p>
-        The main design idea of this level is:
-        <strong>players who gather information can make better decisions.</strong>
-    </p>
+            <h3>Project Media</h3>
 
-    <h4>Iteration Notes</h4>
-    <p>
-        The initial version introduced many mechanics at once. After reviewing the design,
-        I reorganized the level around clearer learning goals: movement, combat pressure,
-        observation, optional exploration, and final mastery.
-    </p>
+            <div class="placeholder-image">
+                Placeholder: Gameplay Video / Level Walkthrough<br>
+                Later you can replace this with a YouTube video, GIF, or recorded gameplay clip.
+            </div>
 
-    <h4>Current Status</h4>
-    <p>
-        This project is currently in whitebox stage. The next step is to refine encounter pacing,
-        improve enemy placement, and record a short gameplay walkthrough.
-    </p>
+            <div class="placeholder-image">
+                Placeholder: Top-Down Level Map<br>
+                Later you can replace this with your refined level diagram.
+            </div>
 
-    <hr>
+            <h3>Design Goals</h3>
+            <ul>
+                <li>Teach basic movement, dash, cover, and shooting.</li>
+                <li>Encourage players to observe before entering combat.</li>
+                <li>Use glass floors, high platforms, and portals to reward information gathering.</li>
+                <li>Introduce optional exploration through a hidden portal room.</li>
+                <li>End with a combat test where players must act carefully under incomplete information.</li>
+            </ul>
 
-    <h2>Skills</h2>
-    <ul>
-        <li>Combat Design</li>
-        <li>Level Design</li>
-        <li>Encounter Design</li>
-        <li>Boss Design</li>
-        <li>Unreal Engine Whiteboxing</li>
-        <li>Design Documentation</li>
-    </ul>
+            <h3>Core Design Idea</h3>
 
-    <hr>
+            <p>
+                The main design idea of this level is:
+                <strong>players who gather information can make better decisions.</strong>
+            </p>
 
-    <h2>Contact</h2>
-    <p>
-        Email: your-email@example.com
-    </p>
+            <div class="note-box">
+                <strong>Design Pillar:</strong> Information creates advantage.
+                The level encourages players to observe, plan, and choose better positions before committing to combat.
+            </div>
+
+            <h3>Level Flow</h3>
+
+            <div class="room-grid">
+
+                <div class="room-card">
+                    <h4>1. Start Area</h4>
+                    <div class="placeholder-image">
+                        Placeholder: Start Area Screenshot
+                    </div>
+                    <ul>
+                        <li><strong>Player learns:</strong> Basic movement and navigation.</li>
+                        <li><strong>Information gained:</strong> The level is readable and safe.</li>
+                        <li><strong>Decision enabled:</strong> Move forward and enter the first room.</li>
+                        <li><strong>Intended feeling:</strong> Safe and relaxed.</li>
+                    </ul>
+                </div>
+
+                <div class="room-card">
+                    <h4>2. First Combat Room</h4>
+                    <div class="placeholder-image">
+                        Placeholder: First Combat Room Screenshot
+                    </div>
+                    <ul>
+                        <li><strong>Player learns:</strong> Dash and target priority.</li>
+                        <li><strong>Information gained:</strong> Melee enemies rush quickly; ranged enemies control space.</li>
+                        <li><strong>Decision enabled:</strong> Keep distance, avoid bullets, and choose which enemy to kill first.</li>
+                        <li><strong>Intended feeling:</strong> Slight pressure.</li>
+                    </ul>
+                </div>
+
+                <div class="room-card">
+                    <h4>3. Glass Observation Room</h4>
+                    <div class="placeholder-image">
+                        Placeholder: Glass Room Screenshot
+                    </div>
+                    <ul>
+                        <li><strong>Player learns:</strong> Observe before committing.</li>
+                        <li><strong>Information gained:</strong> Enemy locations and room structure.</li>
+                        <li><strong>Decision enabled:</strong> Plan a safer attack route and kill order.</li>
+                        <li><strong>Intended feeling:</strong> Curious and in control.</li>
+                    </ul>
+                </div>
+
+                <div class="room-card">
+                    <h4>4. Portal Bonus Room</h4>
+                    <div class="placeholder-image">
+                        Placeholder: Portal Bonus Room Screenshot
+                    </div>
+                    <ul>
+                        <li><strong>Player learns:</strong> Portals can create alternate routes.</li>
+                        <li><strong>Information gained:</strong> Higher platforms reveal more of the room.</li>
+                        <li><strong>Decision enabled:</strong> Plan movement before committing.</li>
+                        <li><strong>Intended feeling:</strong> Surprise and curiosity.</li>
+                    </ul>
+                </div>
+
+                <div class="room-card">
+                    <h4>5. Final Combat Room</h4>
+                    <div class="placeholder-image">
+                        Placeholder: Final Combat Room Screenshot
+                    </div>
+                    <ul>
+                        <li><strong>Player learns:</strong> Threats may exist outside visible information.</li>
+                        <li><strong>Information gained:</strong> Some enemies are visible, but some threats are hidden.</li>
+                        <li><strong>Decision enabled:</strong> Move carefully, react quickly, and avoid tunnel vision.</li>
+                        <li><strong>Intended feeling:</strong> Tense but fair.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <h3>Iteration Notes</h3>
+
+            <p>
+                The initial version introduced many mechanics at once. After reviewing the design,
+                I reorganized the level around clearer learning goals: movement, combat pressure,
+                observation, optional exploration, and final mastery.
+            </p>
+
+            <p>
+                A major lesson from this iteration is that level design is not just about building rooms.
+                It is about creating a sequence of player experiences.
+            </p>
+
+            <h3>Current Status</h3>
+
+            <p>
+                This project is currently in whitebox stage. The next step is to refine encounter pacing,
+                improve enemy placement, and record a short gameplay walkthrough.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+
+            <ul class="skills-list">
+                <li>Combat Design</li>
+                <li>Level Design</li>
+                <li>Encounter Design</li>
+                <li>Boss Design</li>
+                <li>Unreal Engine Whiteboxing</li>
+                <li>Design Documentation</li>
+                <li>Gameplay Analysis</li>
+                <li>Player Onboarding</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+
+            <p>
+                Email: your-email@example.com
+            </p>
+        </section>
+
+        <footer>
+            <p>
+                © 2026 Chris Wang. Portfolio in progress.
+            </p>
+        </footer>
+
+    </div>
 </body>
-    <nav>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
 </html>
-<section id="projects">
-  <h2>Featured Project</h2>
-  <h3>FPS Tutorial Level – Information Creates Advantage</h3>
-  <p>This is a first-level FPS prototype designed to teach players that...</p>
-
-  <h4>Design Goals</h4>
-  <ul>
-    <li>Teach basic movement, dash, cover, and shooting.</li>
-    <li>Encourage players to observe before entering combat.</li>
-    <li>Use glass floors, high platforms, and portals to reward information gathering.</li>
-    <li>Introduce optional exploration through a hidden portal room.</li>
-  </ul>
-</section>
-<img src="your_level_map.png" alt="Level Design Map" width="600">
