@@ -3,7 +3,29 @@
 <head>
     <title>Chris Wang Portfolio</title>
 </head>
-
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    line-height: 1.6;
+  }
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+  }
+  nav a {
+    text-decoration: none;
+    color: darkblue;
+  }
+  section {
+    margin-top: 50px;
+  }
+  h1, h2, h3, h4 {
+    margin-bottom: 10px;
+  }
+</style>
 <body>
     <h1>Chris Wang</h1>
     <h2>Combat / Level Designer</h2>
@@ -79,4 +101,25 @@
         Email: your-email@example.com
     </p>
 </body>
+    <nav>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 </html>
+<section id="projects">
+  <h2>Featured Project</h2>
+  <h3>FPS Tutorial Level – Information Creates Advantage</h3>
+  <p>This is a first-level FPS prototype designed to teach players that...</p>
+
+  <h4>Design Goals</h4>
+  <ul>
+    <li>Teach basic movement, dash, cover, and shooting.</li>
+    <li>Encourage players to observe before entering combat.</li>
+    <li>Use glass floors, high platforms, and portals to reward information gathering.</li>
+    <li>Introduce optional exploration through a hidden portal room.</li>
+  </ul>
+</section>
+<img src="your_level_map.png" alt="Level Design Map" width="600">
