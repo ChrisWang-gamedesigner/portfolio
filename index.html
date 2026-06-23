@@ -1,391 +1,1142 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Chris Wang Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris Wang — Level Designer Portfolio</title>
 
     <style>
+        :root {
+            --bg: #f5f3ee;
+            --panel: #ffffff;
+            --ink: #1f2428;
+            --muted: #667085;
+            --line: #ded8ce;
+            --soft: #ebe5da;
+            --accent: #315d50;
+            --accent-2: #9b6a3a;
+            --warning: #fff6dc;
+            --shadow: 0 18px 45px rgba(31, 36, 40, 0.08);
+            --radius: 18px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f5f5f2;
-            color: #222;
-            line-height: 1.6;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
         }
 
-        .container {
-            max-width: 1050px;
+        a {
+            color: inherit;
+        }
+
+        .page {
+            max-width: 1180px;
             margin: 0 auto;
-            padding: 40px 24px;
+            padding: 0 24px 56px;
         }
 
-        header {
-            padding: 70px 0 50px;
-            border-bottom: 1px solid #d0d0d0;
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(245, 243, 238, 0.94);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line);
         }
 
-        header h1 {
-            font-size: 48px;
-            margin: 0;
+        .topbar-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
         }
 
-        header h2 {
-            font-size: 24px;
-            font-weight: normal;
-            color: #555;
-            margin-top: 10px;
-        }
-
-        header p {
-            max-width: 720px;
-            font-size: 18px;
-            margin-top: 24px;
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.02em;
         }
 
         nav {
-            margin-top: 30px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            font-size: 14px;
+            color: var(--muted);
         }
 
         nav a {
-            margin-right: 20px;
-            color: #222;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
         }
 
         nav a:hover {
+            color: var(--ink);
             text-decoration: underline;
+            text-underline-offset: 4px;
         }
 
-        section {
-            margin-top: 60px;
-            padding-bottom: 50px;
-            border-bottom: 1px solid #d0d0d0;
-        }
-
-        h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        h3 {
-            font-size: 24px;
-            margin-top: 35px;
-        }
-
-        h4 {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .project-intro {
-            background-color: white;
-            padding: 28px;
-            border-radius: 12px;
-            border: 1px solid #ddd;
-        }
-
-        .tag-list {
-            margin-top: 20px;
-        }
-
-        .tag {
-            display: inline-block;
-            background-color: #e7e7df;
-            padding: 6px 12px;
-            border-radius: 20px;
-            margin: 4px 4px 4px 0;
-            font-size: 14px;
-        }
-
-        .placeholder-image {
-            background-color: #ddd;
-            border: 2px dashed #999;
-            border-radius: 10px;
-            min-height: 240px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-weight: bold;
-            margin: 20px 0;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .large-placeholder {
-            min-height: 420px;
-        }
-
-        .caption {
-            color: #666;
-            font-size: 14px;
-            margin-top: -10px;
-        }
-
-        .room-grid {
+        .hero {
+            padding: 86px 0 56px;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin-top: 25px;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 36px;
+            align-items: end;
+            border-bottom: 1px solid var(--line);
         }
 
-        .room-card {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            padding: 22px;
+        .eyebrow {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 14px;
         }
 
-        .room-card h4 {
-            margin-top: 0;
+        h1 {
+            font-size: clamp(44px, 7vw, 82px);
+            line-height: 0.98;
+            margin: 0;
+            letter-spacing: -0.05em;
+        }
+
+        .role {
+            font-size: clamp(22px, 3vw, 34px);
+            line-height: 1.15;
+            margin: 18px 0 0;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .hero-copy {
+            max-width: 760px;
+            margin-top: 26px;
             font-size: 20px;
         }
 
-        .room-card ul {
-            padding-left: 20px;
+        .hero-side {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
         }
 
-        .note-box {
-            background-color: #fff7dd;
-            border-left: 5px solid #d6a400;
-            padding: 18px 22px;
-            margin-top: 20px;
-            border-radius: 8px;
+        .hero-side h2 {
+            font-size: 18px;
+            margin: 0 0 12px;
         }
 
-        .skills-list {
+        .quick-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 10px;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .quick-list strong {
+            color: var(--ink);
+        }
+
+        .cta-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            padding: 0;
-            list-style: none;
+            gap: 12px;
+            margin-top: 28px;
         }
 
-        .skills-list li {
-            background-color: white;
-            border: 1px solid #ddd;
-            padding: 10px 14px;
-            border-radius: 8px;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 16px;
+            border-radius: 999px;
+            font-weight: 800;
+            text-decoration: none;
+            border: 1px solid var(--ink);
+            transition: transform 0.12s ease, background 0.12s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn.primary {
+            color: white;
+            background: var(--ink);
+        }
+
+        .btn.secondary {
+            background: transparent;
+        }
+
+        section {
+            padding: 66px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section-head {
+            display: grid;
+            grid-template-columns: 0.45fr 1fr;
+            gap: 34px;
+            margin-bottom: 28px;
+        }
+
+        .section-head h2 {
+            font-size: 34px;
+            line-height: 1.05;
+            margin: 0;
+            letter-spacing: -0.03em;
+        }
+
+        .section-head p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 18px;
+            max-width: 760px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 22px;
+        }
+
+        .grid.two {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid.three {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h3,
+        .card h4 {
+            margin-top: 0;
+            line-height: 1.18;
+        }
+
+        .card p {
+            color: var(--muted);
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover .project-title {
+            text-decoration: underline;
+            text-underline-offset: 5px;
+        }
+
+        .project-card.featured {
+            grid-column: span 2;
+            min-height: 420px;
+            background:
+                linear-gradient(135deg, rgba(49, 93, 80, 0.92), rgba(31, 36, 40, 0.88)),
+                var(--panel);
+            color: white;
+        }
+
+        .project-card.featured p,
+        .project-card.featured .meta,
+        .project-card.featured .tag {
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .project-title {
+            font-size: 28px;
+            margin: 0 0 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .project-card.featured .project-title {
+            font-size: 40px;
+        }
+
+        .project-kicker {
+            font-weight: 800;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .project-card.featured .project-kicker {
+            color: #d7efe5;
+        }
+
+        .media-placeholder {
+            margin: 20px 0;
+            min-height: 220px;
+            border: 2px dashed rgba(31, 36, 40, 0.25);
+            border-radius: 16px;
+            background: rgba(31, 36, 40, 0.035);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--muted);
+            font-weight: 800;
+            padding: 22px;
+        }
+
+        .featured .media-placeholder {
+            border-color: rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.84);
+            min-height: 260px;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 18px 0 0;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid var(--line);
+            background: var(--soft);
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--muted);
+        }
+
+        .featured .tag {
+            border-color: rgba(255, 255, 255, 0.28);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .meta {
+            margin-top: auto;
+            padding-top: 26px;
+            color: var(--muted);
+            font-weight: 800;
+        }
+
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .pillar {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 18px;
+        }
+
+        .pillar strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .pillar span {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .detail {
+            padding-top: 84px;
+        }
+
+        .detail-header {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 26px;
+            padding: 34px;
+            box-shadow: var(--shadow);
+        }
+
+        .detail-header h2 {
+            font-size: 44px;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            margin: 0 0 14px;
+        }
+
+        .detail-header p {
+            font-size: 18px;
+            color: var(--muted);
+            max-width: 840px;
+        }
+
+        .detail-layout {
+            display: grid;
+            grid-template-columns: 0.82fr 1.18fr;
+            gap: 24px;
+            margin-top: 26px;
+        }
+
+        .sidebar-box {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px;
+            height: fit-content;
+        }
+
+        .sidebar-box h3 {
+            margin-top: 0;
+        }
+
+        .check-list {
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        .check-list li {
+            margin: 8px 0;
+        }
+
+        .module {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .module h3 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .module p,
+        .module li {
+            color: var(--muted);
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .table th,
+        .table td {
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid var(--line);
+            padding: 12px;
+        }
+
+        .table th {
+            background: var(--soft);
+        }
+
+        .process-strip {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .step {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 18px;
+        }
+
+        .step b {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 999px;
+            background: var(--ink);
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .note {
+            background: var(--warning);
+            border-left: 5px solid #d2a33a;
+            border-radius: 12px;
+            padding: 16px 18px;
+            color: #5f4520;
         }
 
         footer {
-            padding: 50px 0;
-            color: #555;
+            padding: 42px 0 10px;
+            color: var(--muted);
         }
 
-        @media (max-width: 760px) {
-            header h1 {
-                font-size: 36px;
-            }
-
-            .room-grid {
+        @media (max-width: 980px) {
+            .hero,
+            .section-head,
+            .detail-layout {
                 grid-template-columns: 1fr;
             }
 
-            nav a {
-                display: inline-block;
-                margin-bottom: 10px;
+            .project-card.featured {
+                grid-column: span 1;
+            }
+
+            .grid.three,
+            .grid.two,
+            .pillars,
+            .process-strip {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .topbar-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: flex-start;
+            }
+
+            .page {
+                padding: 0 16px 40px;
+            }
+
+            .hero {
+                padding-top: 52px;
+            }
+
+            .detail-header h2 {
+                font-size: 34px;
+            }
+
+            .project-card.featured .project-title {
+                font-size: 32px;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-
-        <header>
-            <h1>Chris Wang</h1>
-            <h2>Combat / Level Designer</h2>
-
-            <p>
-                I design combat encounters, level spaces, and player learning experiences for action and shooter games.
-            </p>
-
+    <div class="topbar">
+        <div class="topbar-inner">
+            <div class="brand">Chris Wang</div>
             <nav>
-                <a href="#project">Featured Project</a>
-                <a href="#skills">Skills</a>
+                <a href="#about">About</a>
+                <a href="#level-projects">Level Projects</a>
+                <a href="#supporting-projects">Supporting Work</a>
+                <a href="#process">Design Process</a>
                 <a href="#contact">Contact</a>
             </nav>
-        </header>
+        </div>
+    </div>
 
-        <section id="project">
-            <h2>Featured Project</h2>
-
-            <div class="project-intro">
-                <h3>FPS Tutorial Level — Information Creates Advantage</h3>
-
-                <p>
-                    This is a first-level FPS prototype designed to teach players that gathering information,
-                    choosing good positions, and planning movement can create advantages in combat.
+    <main class="page">
+        <header class="hero" id="top">
+            <div>
+                <div class="eyebrow">Level Designer / Environmental Experience Designer</div>
+                <h1>Chris Wang</h1>
+                <p class="role">I build level spaces that turn story context into player-driven decisions.</p>
+                <p class="hero-copy">
+                    My primary focus is level design, environmental storytelling, player agency, and spatial gameplay structure.
+                    I am especially interested in action, shooter, RPG, and immersive gameplay spaces where exploration,
+                    combat pressure, and narrative context work as one system.
                 </p>
 
+                <div class="cta-row">
+                    <a class="btn primary" href="#level-projects">View Level Design Work</a>
+                    <a class="btn secondary" href="#process">View Design Process</a>
+                </div>
+            </div>
+
+            <aside class="hero-side">
+                <h2>Quick Profile</h2>
+                <ul class="quick-list">
+                    <li><strong>Target Roles:</strong> Level Designer / Mission Designer / Encounter Designer</li>
+                    <li><strong>Core Strength:</strong> Environmental storytelling + player choice + spatial pacing</li>
+                    <li><strong>Tools:</strong> Unreal Engine 5, Blueprint, whitebox/blockout, design documentation</li>
+                    <li><strong>Contact:</strong> <a href="mailto:contact@chriswang-gamedesigner.com">contact@chriswang-gamedesigner.com</a></li>
+                </ul>
+            </aside>
+        </header>
+
+        <section id="about">
+            <div class="section-head">
+                <h2>About</h2>
+                <p>
+                    I approach level design as gameplay architecture: a level should not only contain gameplay,
+                    but actively shape what the player notices, chooses, risks, and remembers.
+                </p>
+            </div>
+
+            <div class="pillars">
+                <div class="pillar">
+                    <strong>Spatial Clarity</strong>
+                    <span>Readable routes, landmarks, sightlines, and progression signals.</span>
+                </div>
+                <div class="pillar">
+                    <strong>Player Agency</strong>
+                    <span>Choices that feel intentional, not decorative.</span>
+                </div>
+                <div class="pillar">
+                    <strong>Environmental Storytelling</strong>
+                    <span>Story conveyed through layout, props, tension, and spatial memory.</span>
+                </div>
+                <div class="pillar">
+                    <strong>Encounter Flow</strong>
+                    <span>Combat pressure and exploration rhythm built into space.</span>
+                </div>
+                <div class="pillar">
+                    <strong>Iteration</strong>
+                    <span>Blockout, testing, diagnosis, revision, and documented design decisions.</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="level-projects">
+            <div class="section-head">
+                <h2>Level Design Projects</h2>
+                <p>
+                    Main portfolio track. Gonggong's Wrath is the current hero project.
+                    Two additional whitebox slots are reserved for future deep level-design studies.
+                </p>
+            </div>
+
+            <div class="grid three">
+                <a class="card project-card featured" href="#project-gonggong">
+                    <div class="project-kicker">Hero Project · In Development</div>
+                    <h3 class="project-title">Gonggong's Wrath</h3>
+                    <p>
+                        A mythic action-adventure dungeon focused on environmental storytelling, tool-based traversal,
+                        player-driven problem solving, and a unified level arc from village to cave, avalanche, river,
+                        aerial path-building, and boss space.
+                    </p>
+                    <div class="media-placeholder">
+                        Replace with: hero gameplay capture / whitebox flythrough / top-down map
+                    </div>
+                    <div class="tag-list">
+                        <span class="tag">Level Design</span>
+                        <span class="tag">Environmental Storytelling</span>
+                        <span class="tag">Player Agency</span>
+                        <span class="tag">Traversal Puzzle</span>
+                        <span class="tag">UE5 Whitebox</span>
+                    </div>
+                    <div class="meta">Open project details →</div>
+                </a>
+
+                <a class="card project-card" href="#project-level-02">
+                    <div class="project-kicker">Future Level Study</div>
+                    <h3 class="project-title">Whitebox Level 02</h3>
+                    <p>
+                        Placeholder for a focused spatial-design study. Suggested direction:
+                        nonlinear exploration level with readable landmarks, optional routes, and player choice.
+                    </p>
+                    <div class="media-placeholder">Placeholder image / map</div>
+                    <div class="tag-list">
+                        <span class="tag">Exploration Flow</span>
+                        <span class="tag">Nonlinear Layout</span>
+                        <span class="tag">Landmark Design</span>
+                    </div>
+                    <div class="meta">Open placeholder →</div>
+                </a>
+
+                <a class="card project-card" href="#project-level-03">
+                    <div class="project-kicker">Future Level Study</div>
+                    <h3 class="project-title">Whitebox Level 03</h3>
+                    <p>
+                        Placeholder for a combat-space level study. Suggested direction:
+                        encounter arena, cover logic, route pressure, enemy composition, and pacing control.
+                    </p>
+                    <div class="media-placeholder">Placeholder image / map</div>
+                    <div class="tag-list">
+                        <span class="tag">Encounter Flow</span>
+                        <span class="tag">Combat Space</span>
+                        <span class="tag">Pacing Curve</span>
+                    </div>
+                    <div class="meta">Open placeholder →</div>
+                </a>
+            </div>
+        </section>
+
+        <section id="supporting-projects">
+            <div class="section-head">
+                <h2>Supporting Design Work</h2>
+                <p>
+                    These projects support the level-design main track by proving combat awareness and systemic experience design.
+                    They should be secondary on the homepage, not hidden.
+                </p>
+            </div>
+
+            <div class="grid two">
+                <a class="card project-card" href="#project-fps">
+                    <div class="project-kicker">Supporting Project · FPS Level</div>
+                    <h3 class="project-title">Information Creates Advantage</h3>
+                    <p>
+                        FPS tutorial level about observation, positioning, cover use, and decision-making under partial information.
+                        Use this as combat-informed level design proof.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">FPS Level Design</span>
+                        <span class="tag">Player Learning</span>
+                        <span class="tag">Combat Readability</span>
+                        <span class="tag">Encounter Design</span>
+                    </div>
+                    <div class="meta">Open project details →</div>
+                </a>
+
+                <a class="card project-card" href="#project-blessing">
+                    <div class="project-kicker">Supporting Project · Systemic Experience</div>
+                    <h3 class="project-title">Blessing</h3>
+                    <p>
+                        A satirical incremental game about workplace pressure. Use this as proof of experience design,
+                        systemic feedback, player emotion shaping, and readable UI/behavior loops.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Experience Design</span>
+                        <span class="tag">Systemic Feedback</span>
+                        <span class="tag">Satire</span>
+                        <span class="tag">Behavior Loop</span>
+                    </div>
+                    <div class="meta">Open project details →</div>
+                </a>
+            </div>
+        </section>
+
+        <section id="process">
+            <div class="section-head">
+                <h2>Design Process</h2>
+                <p>
+                    This section is designed for North American level-design recruiters:
+                    it explains how each project will be documented once content is filled in.
+                </p>
+            </div>
+
+            <div class="process-strip">
+                <div class="step">
+                    <b>1</b>
+                    <h3>Design Intent</h3>
+                    <p>What player experience should this level create?</p>
+                </div>
+                <div class="step">
+                    <b>2</b>
+                    <h3>Spatial Plan</h3>
+                    <p>Top-down map, flow diagram, landmarks, gates, routes, and sightlines.</p>
+                </div>
+                <div class="step">
+                    <b>3</b>
+                    <h3>Playtest Diagnosis</h3>
+                    <p>What did players misunderstand, miss, rush, avoid, or exploit?</p>
+                </div>
+                <div class="step">
+                    <b>4</b>
+                    <h3>Iteration Evidence</h3>
+                    <p>V1 → V2 → V3 changes, with design reasoning and player-experience impact.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             PROJECT DETAIL SECTIONS
+             These sections work as "secondary pages" through anchors.
+             Later, each can be moved into its own HTML file if needed.
+        ========================================================== -->
+
+        <section class="detail" id="project-gonggong">
+            <div class="detail-header">
+                <div class="eyebrow">Hero Project · Level Design</div>
+                <h2>Gonggong's Wrath</h2>
+                <p>
+                    A level-design case study about environmental storytelling, tool-based traversal, player autonomy,
+                    and one continuous level arc. This should become the main project for Level Designer applications.
+                </p>
                 <div class="tag-list">
-                    <span class="tag">Level Design</span>
-                    <span class="tag">Combat Design</span>
-                    <span class="tag">Tutorial Level</span>
+                    <span class="tag">Primary Portfolio Piece</span>
+                    <span class="tag">Environmental Storytelling</span>
+                    <span class="tag">Player Agency</span>
+                    <span class="tag">Whitebox</span>
+                    <span class="tag">Unreal Engine 5</span>
+                </div>
+            </div>
+
+            <div class="detail-layout">
+                <aside class="sidebar-box">
+                    <h3>Project Summary</h3>
+                    <ul class="check-list">
+                        <li><strong>Genre:</strong> Third-person action-adventure dungeon</li>
+                        <li><strong>Design Focus:</strong> level flow, environmental narrative, player-driven route decisions</li>
+                        <li><strong>Current Stage:</strong> UE5 whitebox / mechanic prototyping</li>
+                        <li><strong>Target Proof:</strong> level design as integrated gameplay architecture</li>
+                    </ul>
+
+                    <div class="note">
+                        Later: add a 90-second walkthrough video and a top-down annotated level map here.
+                    </div>
+                </aside>
+
+                <div>
+                    <div class="module">
+                        <h3>1. Design Pillar</h3>
+                        <p>
+                            Placeholder: Explain the core design statement of this dungeon.
+                            Example: "The player should understand the world, danger, and available choices through the environment before relying on explicit instruction."
+                        </p>
+                    </div>
+
+                    <div class="module">
+                        <h3>2. Level Flow Overview</h3>
+                        <div class="media-placeholder">Replace with: full level flow diagram / annotated top-down map</div>
+                        <table class="table">
+                            <tr>
+                                <th>Stage</th>
+                                <th>Player Experience Goal</th>
+                                <th>Level Design Function</th>
+                            </tr>
+                            <tr>
+                                <td>Village</td>
+                                <td>Low-pressure orientation and narrative setup.</td>
+                                <td>Introduce context, destination, and visual anchors.</td>
+                            </tr>
+                            <tr>
+                                <td>Cave</td>
+                                <td>Tool discovery and safe learning.</td>
+                                <td>Teach the ice-block tool through spatial affordance.</td>
+                            </tr>
+                            <tr>
+                                <td>Avalanche / River</td>
+                                <td>Pressure escalation and route commitment.</td>
+                                <td>Turn tool understanding into traversal decisions.</td>
+                            </tr>
+                            <tr>
+                                <td>Boss Space</td>
+                                <td>Final application of learned spatial rules.</td>
+                                <td>Unify environment, tool, threat, and narrative resolution.</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="module">
+                        <h3>3. Player Agency</h3>
+                        <p>
+                            Placeholder: Document where players can make meaningful choices.
+                            Focus on optional routes, alternate uses of the ice-block tool, risk/reward paths,
+                            and moments where the player solves space rather than follows instructions.
+                        </p>
+                    </div>
+
+                    <div class="module">
+                        <h3>4. Environmental Storytelling</h3>
+                        <p>
+                            Placeholder: Explain how the village, cave, broken terrain, water, snow, and boss arena communicate story and danger through layout.
+                            Include before/after screenshots and prop/narrative intent later.
+                        </p>
+                    </div>
+
+                    <div class="module">
+                        <h3>5. Iteration Log</h3>
+                        <table class="table">
+                            <tr>
+                                <th>Version</th>
+                                <th>Problem Found</th>
+                                <th>Design Change</th>
+                                <th>Player Experience Impact</th>
+                            </tr>
+                            <tr>
+                                <td>V1</td>
+                                <td>Placeholder: unclear tool affordance / path readability issue.</td>
+                                <td>Placeholder: adjusted layout, landmark, spacing, or hint structure.</td>
+                                <td>Placeholder: player understood route or choice faster.</td>
+                            </tr>
+                            <tr>
+                                <td>V2</td>
+                                <td>Placeholder.</td>
+                                <td>Placeholder.</td>
+                                <td>Placeholder.</td>
+                            </tr>
+                            <tr>
+                                <td>V3</td>
+                                <td>Placeholder.</td>
+                                <td>Placeholder.</td>
+                                <td>Placeholder.</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="detail" id="project-level-02">
+            <div class="detail-header">
+                <div class="eyebrow">Future Project · Level Whitebox</div>
+                <h2>Whitebox Level 02 — Exploration & Choice</h2>
+                <p>
+                    Placeholder project for a future deep level-design study focused on spatial readability,
+                    optional routes, landmarks, and player-led exploration.
+                </p>
+            </div>
+
+            <div class="detail-layout">
+                <aside class="sidebar-box">
+                    <h3>Recommended Scope</h3>
+                    <ul class="check-list">
+                        <li>15–20 minute whitebox level</li>
+                        <li>One main route + two optional routes</li>
+                        <li>Landmark-based navigation</li>
+                        <li>Environmental storytelling without cutscenes</li>
+                    </ul>
+                </aside>
+
+                <div>
+                    <div class="module">
+                        <h3>Design Question</h3>
+                        <p>
+                            Placeholder: How can a level make players feel they discovered a path themselves while still staying readable?
+                        </p>
+                    </div>
+                    <div class="module">
+                        <h3>Required Future Content</h3>
+                        <ul>
+                            <li>Top-down flow map</li>
+                            <li>Route-choice diagram</li>
+                            <li>Landmark plan</li>
+                            <li>Iteration log</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="detail" id="project-level-03">
+            <div class="detail-header">
+                <div class="eyebrow">Future Project · Encounter Whitebox</div>
+                <h2>Whitebox Level 03 — Combat Space & Pacing</h2>
+                <p>
+                    Placeholder project for a future combat-space study focused on encounter flow, cover logic,
+                    enemy composition, flank routes, pressure control, and level pacing.
+                </p>
+            </div>
+
+            <div class="detail-layout">
+                <aside class="sidebar-box">
+                    <h3>Recommended Scope</h3>
+                    <ul class="check-list">
+                        <li>One compact combat level</li>
+                        <li>3 encounter phases</li>
+                        <li>At least two viable player routes</li>
+                        <li>Clear pressure/release rhythm</li>
+                    </ul>
+                </aside>
+
+                <div>
+                    <div class="module">
+                        <h3>Design Question</h3>
+                        <p>
+                            Placeholder: How can space teach threat priority, encourage repositioning, and support multiple combat solutions?
+                        </p>
+                    </div>
+                    <div class="module">
+                        <h3>Required Future Content</h3>
+                        <ul>
+                            <li>Encounter map</li>
+                            <li>Enemy placement rationale</li>
+                            <li>Pressure curve</li>
+                            <li>Iteration log</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="detail" id="project-fps">
+            <div class="detail-header">
+                <div class="eyebrow">Supporting Project · Combat-Aware Level Design</div>
+                <h2>FPS Tutorial Level — Information Creates Advantage</h2>
+                <p>
+                    A first-level FPS prototype designed to teach players that gathering information, choosing better positions,
+                    and planning movement can create advantages in combat.
+                </p>
+                <div class="tag-list">
                     <span class="tag">FPS</span>
+                    <span class="tag">Tutorial Level</span>
+                    <span class="tag">Combat Readability</span>
+                    <span class="tag">Player Learning</span>
                     <span class="tag">UE Whitebox</span>
                 </div>
             </div>
 
-            <h3>Project Media</h3>
+            <div class="detail-layout">
+                <aside class="sidebar-box">
+                    <h3>Role in Portfolio</h3>
+                    <p>
+                        This project should support the main Level Designer positioning by proving combat awareness,
+                        information design, and encounter-space reasoning.
+                    </p>
+                </aside>
 
-            <div class="placeholder-image large-placeholder">
-                Placeholder: Gameplay Video / Level Walkthrough<br>
-                Later you can replace this with a YouTube video, GIF, or recorded gameplay clip.
+                <div>
+                    <div class="module">
+                        <h3>1. Design Problem</h3>
+                        <p>
+                            Placeholder: Players often rush into combat without understanding enemy location, route structure, or positional advantage.
+                        </p>
+                    </div>
+                    <div class="module">
+                        <h3>2. Experience Curve</h3>
+                        <table class="table">
+                            <tr>
+                                <th>Phase</th>
+                                <th>Learning Goal</th>
+                                <th>Experience Goal</th>
+                            </tr>
+                            <tr>
+                                <td>Start Area</td>
+                                <td>Basic movement readability.</td>
+                                <td>Safe orientation.</td>
+                            </tr>
+                            <tr>
+                                <td>First Combat</td>
+                                <td>Distance, dash, cover, target priority.</td>
+                                <td>Controlled pressure.</td>
+                            </tr>
+                            <tr>
+                                <td>Observation Room</td>
+                                <td>Information before commitment.</td>
+                                <td>Curiosity and control.</td>
+                            </tr>
+                            <tr>
+                                <td>Final Combat</td>
+                                <td>Incomplete information and careful movement.</td>
+                                <td>Tense but fair mastery test.</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="module">
+                        <h3>3. Iteration Evidence</h3>
+                        <p>
+                            Placeholder: Convert current notes into V1/V2/V3 format with problem, change, and player-experience impact.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="detail" id="project-blessing">
+            <div class="detail-header">
+                <div class="eyebrow">Supporting Project · Systemic Experience Design</div>
+                <h2>Blessing</h2>
+                <p>
+                    A satirical incremental game that uses behavior loops, feedback systems, UI pressure, and escalating workplace collapse
+                    to create a strong systemic player experience.
+                </p>
+                <div class="tag-list">
+                    <span class="tag">Systemic Experience</span>
+                    <span class="tag">Satire</span>
+                    <span class="tag">Behavior Simulation</span>
+                    <span class="tag">Feedback Loop</span>
+                </div>
             </div>
 
-            <div class="placeholder-image large-placeholder">
-                Placeholder: Top-Down Level Map<br>
-                Later you can replace this with your refined level diagram.
+            <div class="detail-layout">
+                <aside class="sidebar-box">
+                    <h3>Role in Portfolio</h3>
+                    <p>
+                        This project should not compete with the level-design main track. It should prove that you can design
+                        emotional pressure, feedback loops, and systemic player experience.
+                    </p>
+                </aside>
+
+                <div>
+                    <div class="module">
+                        <h3>1. Experience Goal</h3>
+                        <p>
+                            Placeholder: Explain the intended emotional arc: early control, mid-game acceleration, late-stage ethical collapse.
+                        </p>
+                    </div>
+                    <div class="module">
+                        <h3>2. System Loop</h3>
+                        <p>
+                            Placeholder: Add a diagram showing player action → income → hiring/upgrades → employee states → pressure feedback.
+                        </p>
+                    </div>
+                    <div class="module">
+                        <h3>3. Why It Supports Level Design</h3>
+                        <p>
+                            Placeholder: Connect the project to your ability to shape player experience through structure, pacing,
+                            feedback, and readable consequences.
+                        </p>
+                    </div>
+                </div>
             </div>
-
-            <p class="caption">
-                Placeholder media will be replaced after the whitebox is polished and recorded.
-            </p>
-
-            <h3>Design Goals</h3>
-            <ul>
-                <li>Teach basic movement, dash, cover, and shooting.</li>
-                <li>Encourage players to observe before entering combat.</li>
-                <li>Use glass floors, high platforms, and portals to reward information gathering.</li>
-                <li>Introduce optional exploration through a hidden portal room.</li>
-                <li>End with a combat test where players must act carefully under incomplete information.</li>
-            </ul>
-
-            <h3>Core Design Idea</h3>
-
-            <p>
-                The main design idea of this level is:
-                <strong>players who gather information can make better decisions.</strong>
-            </p>
-
-            <div class="note-box">
-                <strong>Design Pillar:</strong> Information creates advantage.
-                The level encourages players to observe, plan, and choose better positions before committing to combat.
-            </div>
-
-            <h3>Level Flow</h3>
-
-            <div class="room-grid">
-
-                <div class="room-card">
-                    <h4>1. Start Area</h4>
-                    <div class="placeholder-image">
-                        Placeholder: Start Area Screenshot
-                    </div>
-                    <ul>
-                        <li><strong>Player learns:</strong> Basic movement and navigation.</li>
-                        <li><strong>Information gained:</strong> The level is readable and safe.</li>
-                        <li><strong>Decision enabled:</strong> Move forward and enter the first room.</li>
-                        <li><strong>Intended feeling:</strong> Safe and relaxed.</li>
-                    </ul>
-                </div>
-
-                <div class="room-card">
-                    <h4>2. First Combat Room</h4>
-                    <div class="placeholder-image">
-                        Placeholder: First Combat Room Screenshot
-                    </div>
-                    <ul>
-                        <li><strong>Player learns:</strong> Dash and target priority.</li>
-                        <li><strong>Information gained:</strong> Melee enemies rush quickly; ranged enemies control space.</li>
-                        <li><strong>Decision enabled:</strong> Keep distance, avoid bullets, and choose which enemy to kill first.</li>
-                        <li><strong>Intended feeling:</strong> Slight pressure.</li>
-                    </ul>
-                </div>
-
-                <div class="room-card">
-                    <h4>3. Glass Observation Room</h4>
-                    <div class="placeholder-image">
-                        Placeholder: Glass Room Screenshot
-                    </div>
-                    <ul>
-                        <li><strong>Player learns:</strong> Observe before committing.</li>
-                        <li><strong>Information gained:</strong> Enemy locations and room structure.</li>
-                        <li><strong>Decision enabled:</strong> Plan a safer attack route and kill order.</li>
-                        <li><strong>Intended feeling:</strong> Curious and in control.</li>
-                    </ul>
-                </div>
-
-                <div class="room-card">
-                    <h4>4. Portal Bonus Room</h4>
-                    <div class="placeholder-image">
-                        Placeholder: Portal Bonus Room Screenshot
-                    </div>
-                    <ul>
-                        <li><strong>Player learns:</strong> Portals can create alternate routes.</li>
-                        <li><strong>Information gained:</strong> Higher platforms reveal more of the room.</li>
-                        <li><strong>Decision enabled:</strong> Plan movement before committing.</li>
-                        <li><strong>Intended feeling:</strong> Surprise and curiosity.</li>
-                    </ul>
-                </div>
-
-                <div class="room-card">
-                    <h4>5. Final Combat Room</h4>
-                    <div class="placeholder-image">
-                        Placeholder: Final Combat Room Screenshot
-                    </div>
-                    <ul>
-                        <li><strong>Player learns:</strong> Threats may exist outside visible information.</li>
-                        <li><strong>Information gained:</strong> Some enemies are visible, but some threats are hidden.</li>
-                        <li><strong>Decision enabled:</strong> Move carefully, react quickly, and avoid tunnel vision.</li>
-                        <li><strong>Intended feeling:</strong> Tense but fair.</li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <h3>Iteration Notes</h3>
-
-            <p>
-                The initial version introduced many mechanics at once. After reviewing the design,
-                I reorganized the level around clearer learning goals: movement, combat pressure,
-                observation, optional exploration, and final mastery.
-            </p>
-
-            <p>
-                A major lesson from this iteration is that level design is not just about building rooms.
-                It is about creating a sequence of player experiences.
-            </p>
-
-            <h3>Current Status</h3>
-
-            <p>
-                This project is currently in whitebox stage. The next step is to refine encounter pacing,
-                improve enemy placement, and record a short gameplay walkthrough.
-            </p>
         </section>
 
         <section id="skills">
-            <h2>Skills</h2>
+            <div class="section-head">
+                <h2>Skills</h2>
+                <p>
+                    Keep this concise. Recruiters should see a Level Designer first, with supporting combat and systemic design awareness.
+                </p>
+            </div>
 
-            <ul class="skills-list">
-                <li>Combat Design</li>
-                <li>Level Design</li>
-                <li>Encounter Design</li>
-                <li>Boss Design</li>
-                <li>Unreal Engine Whiteboxing</li>
-                <li>Design Documentation</li>
-                <li>Gameplay Analysis</li>
-                <li>Player Onboarding</li>
-            </ul>
+            <div class="tag-list">
+                <span class="tag">Level Design</span>
+                <span class="tag">Environmental Storytelling</span>
+                <span class="tag">Mission Design</span>
+                <span class="tag">Encounter Flow</span>
+                <span class="tag">Player Agency</span>
+                <span class="tag">Spatial Readability</span>
+                <span class="tag">UE5 Whiteboxing</span>
+                <span class="tag">Blueprint Prototyping</span>
+                <span class="tag">Design Documentation</span>
+                <span class="tag">Gameplay Analysis</span>
+            </div>
         </section>
 
-       <section id="contact">
-    <h2>Contact</h2>
-
-    <p>
-        Email: <a href="mailto:contact@chriswang-gamedesigner.com">contact@chriswang-gamedesigner.com</a>
-    </p>
-</section>
+        <section id="contact">
+            <div class="section-head">
+                <h2>Contact</h2>
+                <p>
+                    Email: <a href="mailto:contact@chriswang-gamedesigner.com">contact@chriswang-gamedesigner.com</a>
+                </p>
+            </div>
+        </section>
 
         <footer>
-            <p>
-                © 2026 Chris Wang. Portfolio in progress.
-            </p>
+            <p>© 2026 Chris Wang. Level Designer Portfolio.</p>
         </footer>
-
-    </div>
+    </main>
 </body>
 </html>
