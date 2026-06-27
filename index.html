@@ -549,10 +549,202 @@
                 font-size: 32px;
             }
         }
+
+        /* =========================================================
+           TEMPORARY CONSTRUCTION GATE
+           This only hides the portfolio from casual visitors.
+           For real protection, use server-side password / hosting auth.
+        ========================================================== */
+
+        body.portfolio-locked {
+            overflow: hidden;
+        }
+
+        body.portfolio-locked .topbar,
+        body.portfolio-locked .page {
+            display: none;
+        }
+
+        body.portfolio-unlocked .construction-gate {
+            display: none;
+        }
+
+        .construction-gate {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top right, rgba(49, 93, 80, 0.10), transparent 34%),
+                radial-gradient(circle at bottom left, rgba(155, 106, 58, 0.10), transparent 38%),
+                var(--bg);
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 24px;
+        }
+
+        .construction-card {
+            width: min(1040px, 100%);
+        }
+
+        .construction-card .construction-name {
+            font-size: clamp(58px, 10vw, 128px);
+            line-height: 0.9;
+            margin: 0;
+            letter-spacing: -0.065em;
+            font-weight: 900;
+        }
+
+        .construction-card .construction-role {
+            max-width: 920px;
+            margin: 30px 0 0;
+            color: var(--muted);
+            font-size: clamp(28px, 4.6vw, 54px);
+            line-height: 1.1;
+            font-weight: 500;
+            letter-spacing: -0.035em;
+        }
+
+        .construction-card .construction-copy {
+            max-width: 1000px;
+            margin: 46px 0 0;
+            font-size: clamp(20px, 2.4vw, 31px);
+            line-height: 1.6;
+            color: #0f1720;
+        }
+
+        .under-construction-button {
+            margin-top: 58px;
+            width: 100%;
+            border: 2px solid var(--ink);
+            background: var(--ink);
+            color: #fff;
+            border-radius: 28px;
+            padding: clamp(22px, 4vw, 42px) 24px;
+            font-size: clamp(36px, 7vw, 92px);
+            line-height: 0.95;
+            font-weight: 950;
+            letter-spacing: -0.06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: transform 0.14s ease, background 0.14s ease, color 0.14s ease;
+        }
+
+        .under-construction-button:hover {
+            transform: translateY(-2px);
+            background: transparent;
+            color: var(--ink);
+        }
+
+        .unlock-panel {
+            max-width: 620px;
+            margin-top: 24px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px;
+            box-shadow: var(--shadow);
+        }
+
+        .unlock-panel[hidden] {
+            display: none;
+        }
+
+        .unlock-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .unlock-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .unlock-row input {
+            flex: 1;
+            min-width: 0;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 13px 16px;
+            font: inherit;
+            background: #fff;
+            color: var(--ink);
+        }
+
+        .unlock-row button {
+            border: 1px solid var(--ink);
+            border-radius: 999px;
+            padding: 13px 18px;
+            font: inherit;
+            font-weight: 800;
+            background: var(--ink);
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .unlock-row button:hover {
+            background: transparent;
+            color: var(--ink);
+        }
+
+        .unlock-error {
+            min-height: 1.4em;
+            margin: 12px 0 0;
+            color: #a43b32;
+            font-weight: 800;
+        }
+
+        @media (max-width: 680px) {
+            body.portfolio-locked {
+                overflow: auto;
+            }
+
+            .construction-gate {
+                align-items: flex-start;
+                padding-top: 44px;
+            }
+
+            .unlock-row {
+                flex-direction: column;
+            }
+        }
+
     </style>
 </head>
 
-<body>
+<body class="portfolio-locked">
+
+    <!-- =========================================================
+         TEMPORARY CONSTRUCTION GATE
+         Keep the real portfolio below unchanged.
+    ========================================================== -->
+    <div id="constructionGate" class="construction-gate">
+        <div class="construction-card">
+            <h1 class="construction-name">Chris Wang</h1>
+            <p class="construction-role">I build level spaces that turn story context into player-driven decisions.</p>
+            <p class="construction-copy">
+                My primary focus is level design, environmental storytelling, player agency,
+                and spatial gameplay structure. I am especially interested in action, shooter,
+                RPG, and immersive gameplay spaces where exploration, combat pressure,
+                and narrative context work as one system.
+            </p>
+
+            <button id="unlockTrigger" class="under-construction-button" type="button">
+                Under Construction
+            </button>
+
+            <div id="unlockPanel" class="unlock-panel" hidden>
+                <label class="unlock-label" for="accessKeyInput">Preview access key</label>
+                <div class="unlock-row">
+                    <input id="accessKeyInput" type="password" autocomplete="current-password" placeholder="Enter access key">
+                    <button id="accessKeySubmit" type="button">Enter</button>
+                </div>
+                <p id="accessKeyError" class="unlock-error" aria-live="polite"></p>
+            </div>
+        </div>
+    </div>
+
     <div class="topbar">
         <div class="topbar-inner">
             <div class="brand">Chris Wang</div>
@@ -1138,5 +1330,68 @@
             <p>© 2026 Chris Wang. Level Designer Portfolio.</p>
         </footer>
     </main>
+
+    <script>
+        (function () {
+            // Change this key before publishing.
+            // Important: this is only a lightweight front-end gate, not real security.
+            const ACCESS_KEY = "cw-preview-2026";
+            const STORAGE_KEY = "chris_portfolio_preview_unlocked";
+
+            const body = document.body;
+            const gate = document.getElementById("constructionGate");
+            const trigger = document.getElementById("unlockTrigger");
+            const panel = document.getElementById("unlockPanel");
+            const input = document.getElementById("accessKeyInput");
+            const submit = document.getElementById("accessKeySubmit");
+            const error = document.getElementById("accessKeyError");
+
+            function showPortfolio() {
+                body.classList.remove("portfolio-locked");
+                body.classList.add("portfolio-unlocked");
+                if (gate) {
+                    gate.setAttribute("hidden", "");
+                }
+                sessionStorage.setItem(STORAGE_KEY, "true");
+            }
+
+            function showGate() {
+                body.classList.add("portfolio-locked");
+                body.classList.remove("portfolio-unlocked");
+            }
+
+            function openUnlockPanel() {
+                panel.hidden = false;
+                error.textContent = "";
+                input.focus();
+            }
+
+            function verifyAccessKey() {
+                if (input.value.trim() === ACCESS_KEY) {
+                    showPortfolio();
+                    return;
+                }
+
+                error.textContent = "Incorrect key.";
+                input.select();
+            }
+
+            if (sessionStorage.getItem(STORAGE_KEY) === "true") {
+                showPortfolio();
+            } else {
+                showGate();
+            }
+
+            trigger.addEventListener("click", openUnlockPanel);
+            submit.addEventListener("click", verifyAccessKey);
+
+            input.addEventListener("keydown", function (event) {
+                if (event.key === "Enter") {
+                    verifyAccessKey();
+                }
+            });
+        })();
+    </script>
+
 </body>
 </html>
