@@ -5,9 +5,7 @@
     const slides = Array.from(track.children);
     const previous = carousel.querySelector('.carousel-prev');
     const next = carousel.querySelector('.carousel-next');
-    const toggle = carousel.querySelector('.carousel-toggle');
     const caption = carousel.querySelector('.carousel-caption');
-    const count = carousel.querySelector('.carousel-count');
     const announcement = carousel.querySelector('.carousel-announcement');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let index = 0;
@@ -17,8 +15,6 @@
     let inView = false;
     let hovered = false;
     let focused = false;
-    let manuallyPaused = false;
-    let motionOptIn = false;
     let touchStart = null;
 
     // Clones keep the last-to-first transition moving in the same direction.
@@ -35,22 +31,15 @@
     }
 
     const position = (slot) => { track.style.transform = `translateX(-${slot * 100}%)`; };
-    const canPlay = () => !manuallyPaused && (!reducedMotion.matches || motionOptIn);
-    const updateToggle = () => {
-      const playing = canPlay();
-      toggle.textContent = playing ? 'Pause' : 'Play';
-      toggle.setAttribute('aria-label', playing ? 'Pause slideshow' : 'Play slideshow');
-    };
     const schedule = () => {
       window.clearTimeout(timer);
-      if (canPlay() && inView && !hovered && !focused && !document.hidden) {
+      if (!reducedMotion.matches && inView && !hovered && !focused && !document.hidden) {
         timer = window.setTimeout(() => move(1, false), 5000);
       }
     };
     const updateSlide = (manual) => {
       slides.forEach((slide, i) => slide.setAttribute('aria-hidden', String(i !== index)));
       caption.textContent = slides[index].dataset.caption;
-      count.textContent = `${index + 1} / ${slides.length}`;
       // Do not announce automatic changes while someone is reading the page.
       if (manual) announcement.textContent = `${index + 1} of ${slides.length}: ${caption.textContent}`;
     };
@@ -83,15 +72,6 @@
     });
     previous.addEventListener('click', () => move(-1));
     next.addEventListener('click', () => move(1));
-    toggle.addEventListener('click', () => {
-      // An explicit Play action can opt back in after a reduced-motion default.
-      const wasPlaying = canPlay();
-      manuallyPaused = wasPlaying;
-      if (!wasPlaying) motionOptIn = true;
-      if (!wasPlaying) focused = false;
-      updateToggle();
-      schedule();
-    });
     viewport.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
         event.preventDefault();
@@ -129,9 +109,7 @@
     viewport.addEventListener('pointercancel', () => { touchStart = null; schedule(); });
     document.addEventListener('visibilitychange', schedule);
     reducedMotion.addEventListener('change', () => {
-      motionOptIn = false;
       finishTransition();
-      updateToggle();
       schedule();
     });
     new IntersectionObserver(([entry]) => {
@@ -142,8 +120,7 @@
 
     position(1);
     updateSlide(false);
-    updateToggle();
     carousel.classList.add('is-ready');
-    [previous, next, toggle].forEach((button) => { button.hidden = false; });
+    [previous, next].forEach((button) => { button.hidden = false; });
   });
 })();
