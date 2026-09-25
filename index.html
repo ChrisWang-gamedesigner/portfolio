@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chris Wang — Level Designer. Explore The Wrath of Gonggong: a playable Unreal Engine 5.7 RPG prototype, with level flow, ice creation, playtest iterations and a downloadable case study.">
     <title>Chris Wang — Level Designer Portfolio</title>
 
     <style>
@@ -298,28 +299,6 @@
             color: #d7efe5;
         }
 
-        .media-placeholder {
-            margin: 20px 0;
-            min-height: 220px;
-            border: 2px dashed rgba(31, 36, 40, 0.25);
-            border-radius: 16px;
-            background: rgba(31, 36, 40, 0.035);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--muted);
-            font-weight: 800;
-            padding: 22px;
-        }
-
-        .featured .media-placeholder {
-            border-color: rgba(255, 255, 255, 0.35);
-            background: rgba(255, 255, 255, 0.08);
-            color: rgba(255, 255, 255, 0.84);
-            min-height: 260px;
-        }
-
         .tag-list {
             display: flex;
             flex-wrap: wrap;
@@ -550,208 +529,63 @@
             }
         }
 
-        /* =========================================================
-           TEMPORARY CONSTRUCTION GATE
-           This only hides the portfolio from casual visitors.
-           For real protection, use server-side password / hosting auth.
-        ========================================================== */
 
-        body.portfolio-locked {
-            overflow: hidden;
-        }
-
-        body.portfolio-locked .topbar,
-        body.portfolio-locked .page {
-            display: none;
-        }
-
-        body.portfolio-unlocked .construction-gate {
-            display: none;
-        }
-
-        .construction-gate {
-            min-height: 100vh;
-            background:
-                radial-gradient(circle at top right, rgba(49, 93, 80, 0.10), transparent 34%),
-                radial-gradient(circle at bottom left, rgba(155, 106, 58, 0.10), transparent 38%),
-                var(--bg);
-            color: var(--ink);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 48px 24px;
-        }
-
-        .construction-card {
-            width: min(1040px, 100%);
-        }
-
-        .construction-card .construction-name {
-            font-size: clamp(58px, 10vw, 128px);
-            line-height: 0.9;
-            margin: 0;
-            letter-spacing: -0.065em;
-            font-weight: 900;
-        }
-
-        .construction-card .construction-role {
-            max-width: 920px;
-            margin: 30px 0 0;
-            color: var(--muted);
-            font-size: clamp(28px, 4.6vw, 54px);
-            line-height: 1.1;
-            font-weight: 500;
-            letter-spacing: -0.035em;
-        }
-
-        .construction-card .construction-copy {
-            max-width: 1000px;
-            margin: 46px 0 0;
-            font-size: clamp(20px, 2.4vw, 31px);
-            line-height: 1.6;
-            color: #0f1720;
-        }
-
-        .under-construction-button {
-            margin-top: 58px;
-            width: 100%;
-            border: 2px solid var(--ink);
-            background: var(--ink);
-            color: #fff;
-            border-radius: 28px;
-            padding: clamp(22px, 4vw, 42px) 24px;
-            font-size: clamp(36px, 7vw, 92px);
-            line-height: 0.95;
-            font-weight: 950;
-            letter-spacing: -0.06em;
-            text-transform: uppercase;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            transition: transform 0.14s ease, background 0.14s ease, color 0.14s ease;
-        }
-
-        .under-construction-button:hover {
-            transform: translateY(-2px);
-            background: transparent;
-            color: var(--ink);
-        }
-
-        .unlock-panel {
-            max-width: 620px;
-            margin-top: 24px;
-            background: var(--panel);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 22px;
-            box-shadow: var(--shadow);
-        }
-
-        .unlock-panel[hidden] {
-            display: none;
-        }
-
-        .unlock-label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 800;
-        }
-
-        .unlock-row {
-            display: flex;
-            gap: 10px;
-        }
-
-        .unlock-row input {
-            flex: 1;
-            min-width: 0;
-            border: 1px solid var(--line);
-            border-radius: 999px;
-            padding: 13px 16px;
-            font: inherit;
-            background: #fff;
-            color: var(--ink);
-        }
-
-        .unlock-row button {
-            border: 1px solid var(--ink);
-            border-radius: 999px;
-            padding: 13px 18px;
-            font: inherit;
-            font-weight: 800;
-            background: var(--ink);
-            color: #fff;
-            cursor: pointer;
-        }
-
-        .unlock-row button:hover {
-            background: transparent;
-            color: var(--ink);
-        }
-
-        .unlock-error {
-            min-height: 1.4em;
-            margin: 12px 0 0;
-            color: #a43b32;
-            font-weight: 800;
-        }
-
+        /* Published project materials, using the existing portfolio theme. */
+        section, header[id] { scroll-margin-top: 100px; }
+        a:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 5px; }
+        .project-cover { display: block; width: 100%; height: auto; border-radius: 12px; margin: 20px 0; }
+        .detail-layout { grid-template-columns: minmax(0, .52fr) minmax(0, 1.48fr); }
+        .detail-layout > *, .quick-list li { min-width: 0; overflow-wrap: anywhere; }
+        .evidence-image { margin: 20px 0; }
+        .evidence-image img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; }
+        figcaption, .caption { font-size: 14px; color: var(--muted); line-height: 1.5; margin-top: 10px; }
+        .comparison-grid, .mechanic-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+        .mechanic-stage h4 { font-size: 20px; margin-bottom: 0; }
+        .mechanic-stage .evidence-image { margin: 16px 0; }
+        .mechanic-stage figcaption { display: none; }
+        .material-links { list-style: none; padding: 0; margin: 0 0 26px; }
+        .material-links li { margin: 16px 0; }
+        .material-links a { font-weight: 700; text-underline-offset: 3px; }
+        .material-links span { display: block; font-size: 14px; color: var(--muted); }
+        details { border-top: 1px solid var(--line); padding-top: 18px; }
+        summary { font-weight: 700; cursor: pointer; }
+        .table-scroll { max-width: 100%; overflow-x: auto; }
+        .table { font-size: 14px; min-width: 530px; line-height: 1.55; }
+        .table tbody th { background: transparent; }
+        .table th:first-child { width: 22%; }
+        .topbar-inner { gap: 16px; }
+        @media (max-width: 980px) { .detail-layout { grid-template-columns: 1fr; } }
         @media (max-width: 680px) {
-            body.portfolio-locked {
-                overflow: auto;
-            }
-
-            .construction-gate {
-                align-items: flex-start;
-                padding-top: 44px;
-            }
-
-            .unlock-row {
-                flex-direction: column;
-            }
+            section, header[id] { scroll-margin-top: 125px; }
+            .comparison-grid, .mechanic-grid { grid-template-columns: 1fr; }
+            .detail-header, .module, .card, .hero-side { padding: 22px; }
+            .btn { max-width: 100%; font-size: 15px; text-align: center; }
+            nav { gap: 8px 15px; }
+            .project-cover { border-radius: 8px; }
+            .table { min-width: 0; }
+            .table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+            .table, .table tbody, .table tr, .table td, .table tbody th { display: block; width: 100%; }
+            .table tr { margin-bottom: 16px; }
+            .table tbody th:first-child { background: var(--soft); width: 100%; }
+            .table td { border-top: 0; }
+            .table td::before { display: block; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+            .table td:nth-child(2)::before { content: "Player activity"; }
+            .table td:nth-child(3)::before { content: "Design purpose"; }
         }
-
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
     </style>
 </head>
 
-<body class="portfolio-locked">
+<body>
 
-    <!-- =========================================================
-         TEMPORARY CONSTRUCTION GATE
-         Keep the real portfolio below unchanged.
-    ========================================================== -->
-    <div id="constructionGate" class="construction-gate">
-        <div class="construction-card">
-            <h1 class="construction-name">Chris Wang</h1>
-            <p class="construction-role">I build level spaces that turn story context into player-driven decisions.</p>
-            <p class="construction-copy">
-                My primary focus is level design, environmental storytelling, player agency,
-                and spatial gameplay structure. I am especially interested in action, shooter,
-                RPG, and immersive gameplay spaces where exploration, combat pressure,
-                and narrative context work as one system.
-            </p>
-
-            <button id="unlockTrigger" class="under-construction-button" type="button">
-                Under Construction
-            </button>
-
-            <div id="unlockPanel" class="unlock-panel" hidden>
-                <label class="unlock-label" for="accessKeyInput">Preview access key</label>
-                <div class="unlock-row">
-                    <input id="accessKeyInput" type="password" autocomplete="current-password" placeholder="Enter access key">
-                    <button id="accessKeySubmit" type="button">Enter</button>
-                </div>
-                <p id="accessKeyError" class="unlock-error" aria-live="polite"></p>
-            </div>
-        </div>
-    </div>
 
     <div class="topbar">
         <div class="topbar-inner">
             <div class="brand">Chris Wang</div>
             <nav>
                 <a href="#about">About</a>
-                <a href="#level-projects">Level Projects</a>
-                <a href="#supporting-projects">Supporting Work</a>
+                <a href="#level-projects">Featured Project</a>
+
                 <a href="#process">Design Process</a>
                 <a href="#contact">Contact</a>
             </nav>
@@ -821,120 +655,23 @@
         </section>
 
         <section id="level-projects">
-            <div class="section-head">
-                <h2>Level Design Projects</h2>
-                <p>
-                    Main portfolio track. Gonggong's Wrath is the current hero project.
-                    Two additional whitebox slots are reserved for future deep level-design studies.
-                </p>
-            </div>
+    <div class="section-head"><h2>Featured Project</h2><p>A playable RPG level built around one recurring interaction: creating ice to reshape the player's route and footing.</p></div>
+    <a class="card project-card featured" href="#project-gonggong">
+      <div class="project-kicker">Solo project · Playable V0.2</div><h3 class="project-title">The Wrath of Gonggong</h3>
+      <p>Explore mountain villages, create paths across water, escape an avalanche and adapt to a changing boss arena. One tool takes on different roles as the level changes the pressure around it.</p>
+      <img class="project-cover" src="assets/images/ice-learning.jpg" alt="The player stands on a created ice platform while crossing the cave pool" width="1476" height="762" loading="lazy">
+      <div class="tag-list"><span class="tag">Level Design</span><span class="tag">Ice Creation</span><span class="tag">Encounter Design</span><span class="tag">Playtest Iteration</span><span class="tag">Unreal Engine 5.7</span></div>
+      <div class="meta">Read the case study →</div>
+    </a>
+</section>
 
-            <div class="grid three">
-                <a class="card project-card featured" href="#project-gonggong">
-                    <div class="project-kicker">Hero Project · In Development</div>
-                    <h3 class="project-title">Gonggong's Wrath</h3>
-                    <p>
-                        A mythic action-adventure dungeon focused on environmental storytelling, tool-based traversal,
-                        player-driven problem solving, and a unified level arc from village to cave, avalanche, river,
-                        aerial path-building, and boss space.
-                    </p>
-                    <div class="media-placeholder">
-                        Replace with: hero gameplay capture / whitebox flythrough / top-down map
-                    </div>
-                    <div class="tag-list">
-                        <span class="tag">Level Design</span>
-                        <span class="tag">Environmental Storytelling</span>
-                        <span class="tag">Player Agency</span>
-                        <span class="tag">Traversal Puzzle</span>
-                        <span class="tag">UE5 Whitebox</span>
-                    </div>
-                    <div class="meta">Open project details →</div>
-                </a>
 
-                <a class="card project-card" href="#project-level-02">
-                    <div class="project-kicker">Future Level Study</div>
-                    <h3 class="project-title">Whitebox Level 02</h3>
-                    <p>
-                        Placeholder for a focused spatial-design study. Suggested direction:
-                        nonlinear exploration level with readable landmarks, optional routes, and player choice.
-                    </p>
-                    <div class="media-placeholder">Placeholder image / map</div>
-                    <div class="tag-list">
-                        <span class="tag">Exploration Flow</span>
-                        <span class="tag">Nonlinear Layout</span>
-                        <span class="tag">Landmark Design</span>
-                    </div>
-                    <div class="meta">Open placeholder →</div>
-                </a>
-
-                <a class="card project-card" href="#project-level-03">
-                    <div class="project-kicker">Future Level Study</div>
-                    <h3 class="project-title">Whitebox Level 03</h3>
-                    <p>
-                        Placeholder for a combat-space level study. Suggested direction:
-                        encounter arena, cover logic, route pressure, enemy composition, and pacing control.
-                    </p>
-                    <div class="media-placeholder">Placeholder image / map</div>
-                    <div class="tag-list">
-                        <span class="tag">Encounter Flow</span>
-                        <span class="tag">Combat Space</span>
-                        <span class="tag">Pacing Curve</span>
-                    </div>
-                    <div class="meta">Open placeholder →</div>
-                </a>
-            </div>
-        </section>
-
-        <section id="supporting-projects">
-            <div class="section-head">
-                <h2>Supporting Design Work</h2>
-                <p>
-                    These projects support the level-design main track by proving combat awareness and systemic experience design.
-                    They should be secondary on the homepage, not hidden.
-                </p>
-            </div>
-
-            <div class="grid two">
-                <a class="card project-card" href="#project-fps">
-                    <div class="project-kicker">Supporting Project · FPS Level</div>
-                    <h3 class="project-title">Information Creates Advantage</h3>
-                    <p>
-                        FPS tutorial level about observation, positioning, cover use, and decision-making under partial information.
-                        Use this as combat-informed level design proof.
-                    </p>
-                    <div class="tag-list">
-                        <span class="tag">FPS Level Design</span>
-                        <span class="tag">Player Learning</span>
-                        <span class="tag">Combat Readability</span>
-                        <span class="tag">Encounter Design</span>
-                    </div>
-                    <div class="meta">Open project details →</div>
-                </a>
-
-                <a class="card project-card" href="#project-blessing">
-                    <div class="project-kicker">Supporting Project · Systemic Experience</div>
-                    <h3 class="project-title">Blessing</h3>
-                    <p>
-                        A satirical incremental game about workplace pressure. Use this as proof of experience design,
-                        systemic feedback, player emotion shaping, and readable UI/behavior loops.
-                    </p>
-                    <div class="tag-list">
-                        <span class="tag">Experience Design</span>
-                        <span class="tag">Systemic Feedback</span>
-                        <span class="tag">Satire</span>
-                        <span class="tag">Behavior Loop</span>
-                    </div>
-                    <div class="meta">Open project details →</div>
-                </a>
-            </div>
-        </section>
 
         <section id="process">
             <div class="section-head">
                 <h2>Design Process</h2>
                 <p>
-                    This section is designed for North American level-design recruiters:
-                    it explains how each project will be documented once content is filled in.
+                    I connect the intended experience to spatial decisions, then use playtest observations to choose changes and record what the evidence supports.
                 </p>
             </div>
 
@@ -947,7 +684,7 @@
                 <div class="step">
                     <b>2</b>
                     <h3>Spatial Plan</h3>
-                    <p>Top-down map, flow diagram, landmarks, gates, routes, and sightlines.</p>
+                    <p>Routes, landmarks, encounter spaces and the conditions that change how a tool is used.</p>
                 </div>
                 <div class="step">
                     <b>3</b>
@@ -957,349 +694,79 @@
                 <div class="step">
                     <b>4</b>
                     <h3>Iteration Evidence</h3>
-                    <p>V1 → V2 → V3 changes, with design reasoning and player-experience impact.</p>
+                    <p>Document the problem, the change, its tradeoff and what still needs testing.</p>
                 </div>
             </div>
         </section>
 
-        <!-- =========================================================
-             PROJECT DETAIL SECTIONS
-             These sections work as "secondary pages" through anchors.
-             Later, each can be moved into its own HTML file if needed.
-        ========================================================== -->
+
 
         <section class="detail" id="project-gonggong">
-            <div class="detail-header">
-                <div class="eyebrow">Hero Project · Level Design</div>
-                <h2>Gonggong's Wrath</h2>
-                <p>
-                    A level-design case study about environmental storytelling, tool-based traversal, player autonomy,
-                    and one continuous level arc. This should become the main project for Level Designer applications.
-                </p>
-                <div class="tag-list">
-                    <span class="tag">Primary Portfolio Piece</span>
-                    <span class="tag">Environmental Storytelling</span>
-                    <span class="tag">Player Agency</span>
-                    <span class="tag">Whitebox</span>
-                    <span class="tag">Unreal Engine 5</span>
-                </div>
-            </div>
+  <div class="detail-header"><div class="eyebrow">Featured project · Level &amp; gameplay design</div><h2>The Wrath of Gonggong</h2>
+    <p>A third-person, single-player RPG level and gameplay prototype. Players investigate a disturbance on Mount Buzhou, moving through villages, mountain passages, an avalanche escape and a final boss encounter.</p>
+    <div class="tag-list"><span class="tag">Solo Design &amp; Implementation</span><span class="tag">Windows 64-bit</span><span class="tag">Playable V0.2</span><span class="tag">Unreal Engine 5.7</span></div>
+    <div class="cta-row"><a class="btn primary" href="https://github.com/ChrisWang-gamedesigner/portfolio/releases/download/V0.2/The_Wrath_of_Gonggong_V0.2_Windows.zip">Download game · 1.35 GB</a><a class="btn secondary" href="assets/documents/The_Wrath_of_Gonggong_Case_Study.pdf" target="_blank" rel="noopener">Read case study PDF · 7 pages</a></div>
+  </div>
+  <div class="detail-layout"><aside class="sidebar-box">
+    <h3>Project Summary</h3><ul class="check-list">
+      <li><strong>My role:</strong> Solo level, gameplay and systems designer; technical implementation and integration.</li>
+      <li><strong>Focus:</strong> Level flow, repeated use of ice creation, local route choices and encounter progression.</li>
+      <li><strong>Tools:</strong> Blueprint, C++, Landscape, UMG, Sequencer and Niagara.</li>
+      <li><strong>Testing:</strong> Three external V0.1 testers; V0.2 developer regression. External V0.2 retesting is pending.</li></ul>
+    <h3>Project Materials</h3><ul class="material-links">
+      <li><a href="assets/documents/The_Wrath_of_Gonggong_Case_Study.pdf" target="_blank" rel="noopener">English case study PDF</a><span>7 pages · 3.3 MB</span></li>
+      <li><a href="https://github.com/ChrisWang-gamedesigner/portfolio/releases/download/V0.2/FinalDemo.mp4">Download full gameplay video</a><span>MP4 · 583 MB</span></li>
+      <li><a href="assets/documents/README.txt" target="_blank" rel="noopener">Controls &amp; launch instructions</a></li>
+      <li><a href="https://github.com/ChrisWang-gamedesigner/portfolio/releases/tag/V0.2" target="_blank" rel="noopener">V0.2 release notes</a></li></ul>
+    <details><summary>How to play</summary><p>Extract the complete ZIP and run <strong>Gonggong.exe</strong>. Keep the Engine and Gonggong folders beside it. Requires Windows 64-bit and DirectX 12 / Shader Model 6 capable graphics hardware.</p>
+      <ul class="check-list"><li><strong>WASD:</strong> move; <strong>mouse:</strong> camera.</li><li><strong>Space:</strong> jump; <strong>E:</strong> interact.</li><li><strong>Left click:</strong> attack.</li><li><strong>Q:</strong> select the ice relic after acquiring it; move the mouse, then left click to place ice.</li><li><strong>1 / 2 / 3:</strong> skills; <strong>R:</strong> dungeon item.</li><li><strong>Alt+F4:</strong> exit. No pause or dedicated dodge action.</li></ul>
+    </details>
+  </aside><div class="case-content">
+    <article class="module"><h3>1. Design Intent</h3><p>I wanted a familiar tool to gain new uses as the surrounding conditions changed. Ice creation first solves a water crossing, then becomes a route choice, an escape tool and a way to maintain safe footing during combat.</p><p>The main route is linear. Local choices affect the route, later dialogue or available combat advantages; they do not create separate main storylines.</p></article>
+    <article class="module"><h3>2. Level Flow</h3>
+      <figure class="evidence-image "><a href="assets/images/village-layout.jpg" target="_blank" rel="noopener" aria-label="Open image: Annotated editor overview of the starting village, with route and mountain landmark"><img src="assets/images/village-layout.jpg" alt="Annotated editor overview of the starting village, with route and mountain landmark" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>Editor overview: buildings shape the starting route; the mountain serves as an intended directional landmark.</figcaption></figure>
+      <div class="table-scroll" role="region" aria-label="Eight-area level flow" tabindex="0"><table class="table"><thead><tr><th scope="col">Area</th><th scope="col">Player activity</th><th scope="col">Design purpose</th></tr></thead><tbody><tr><th scope="row">Starting village</th><td>Movement and combat</td><td>Buildings define the route; the distant mountain is intended as a directional landmark.</td></tr><tr><th scope="row">Cave pool</th><td>Acquire and try the relic</td><td>Learn ice creation without combat or pursuit; rescuing the child is optional.</td></tr><tr><th scope="row">Taoyuan waters</th><td>Choose a bridge or ice route</td><td>Encourage voluntary reuse of the tool and exploration for golden offerings.</td></tr><tr><th scope="row">Taoyuan village</th><td>Resolve an encounter</td><td>Return to combat and reveal the background; rescuing the child changes the explanation.</td></tr><tr><th scope="row">Blizzard passage</th><td>Navigate reduced visibility</td><td>Ground cues guide movement while the change in visibility builds tension.</td></tr><tr><th scope="row">Sheltered valley</th><td>Fight three trolls</td><td>Survivors grow stronger; a cinematic knockback leads into the escape.</td></tr><tr><th scope="row">Avalanche and river</th><td>Escape and cross water</td><td>Apply the familiar tool under pursuit pressure.</td></tr><tr><th scope="row">Boss cave</th><td>Manage footing and attacks</td><td>Combine ice creation, positioning and the offerings collected earlier.</td></tr></tbody></table></div>
+      <p class="caption">Flow reconstructed from the current build and development notes.</p>
+    </article>
+    <article class="module"><h3>3. Teaching and Reusing Ice Creation</h3><div class="mechanic-grid"><article class="mechanic-stage"><div class="project-kicker">01 / Learn</div><h4>Cave pool</h4><figure class="evidence-image "><a href="assets/images/ice-learning.jpg" target="_blank" rel="noopener" aria-label="Open image: Created ice platforms form a route through the cave pool"><img src="assets/images/ice-learning.jpg" alt="Created ice platforms form a route through the cave pool" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>Gameplay capture</figcaption></figure><p>Recognise the water obstacle, place ice and stand on it to cross. Dialogue discourages wading; the exit provides a destination.</p></article><article class="mechanic-stage"><div class="project-kicker">02 / Choose</div><h4>Taoyuan waters</h4><figure class="evidence-image "><a href="assets/images/ice-choice.jpg" target="_blank" rel="noopener" aria-label="Open image: Annotated bridge route and direct water route at Taoyuan waters"><img src="assets/images/ice-choice.jpg" alt="Annotated bridge route and direct water route at Taoyuan waters" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>Gameplay capture</figcaption></figure><p>Follow the bridges or create a more direct route across the water. Golden offerings encourage exploration and later provide a way to weaken the boss.</p></article><article class="mechanic-stage"><div class="project-kicker">03 / Apply under pressure</div><h4>Avalanche river</h4><figure class="evidence-image "><a href="assets/images/ice-pressure.jpg" target="_blank" rel="noopener" aria-label="Open image: The player faces the river and distant cave during the escape"><img src="assets/images/ice-pressure.jpg" alt="The player faces the river and distant cave during the escape" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>Gameplay capture</figcaption></figure><p>Cross the river before the avalanche catches up. A riverbank ice block recalls the tool, while the distant cave indicates the destination.</p></article><article class="mechanic-stage"><div class="project-kicker">04 / Combine</div><h4>Boss cave</h4><figure class="evidence-image "><a href="assets/images/ice-combat.jpg" target="_blank" rel="noopener" aria-label="Open image: The player stands on a created ice platform during the boss encounter"><img src="assets/images/ice-combat.jpg" alt="The player stands on a created ice platform during the boss encounter" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>Gameplay capture</figcaption></figure><p>Create safe footing as terrain collapses and water penalises the player. Fit ice placement around movement, attack warnings and combat openings.</p></article></div><p>All three testers used the relic to cross water after trying it, and participant A particularly enjoyed ice traversal. These observations provide initial support for the mechanic; the four stages describe my intended progression, not a measured learning curve.</p></article>
+    <article class="module"><h3>4. External Playtesting</h3><p>Three participants with different levels of gaming experience tested V0.1 on 28 August 2026. I reviewed recordings and feedback, then compiled the written summary retrospectively.</p>
+      <ul class="check-list"><li><strong>A / Extensive experience:</strong> Enjoyed ice traversal, but repeatedly tried to jump through the avalanche and criticised the overall polish.</li><li><strong>B / Moderate experience:</strong> Pulled trolls out of the encounter and triggered a progression failure. Bypassed terrain on the first run, then completed the intended flow on a repeat V0.1 run without pulling trolls out.</li><li><strong>C / Limited experience:</strong> Used the core mechanic and completed the level, but reported unclear goals and a feeling of being pushed through the experience.</li></ul>
+      <p>These are qualitative observations from a small sample. B's replay used the same V0.1 build and is not evidence of improvement after the changes.</p>
+    </article>
+    <article class="module"><h3>5. Iteration: Containing the Troll Encounter</h3><div class="comparison-grid">
+      <figure class="evidence-image "><a href="assets/images/troll-before.jpg" target="_blank" rel="noopener" aria-label="Open image: Defeated trolls without the intended transition"><img src="assets/images/troll-before.jpg" alt="Defeated trolls without the intended transition" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>Before / V0.1: the final troll died without triggering the cinematic.</figcaption></figure>
+      <figure class="evidence-image "><a href="assets/images/troll-after.jpg" target="_blank" rel="noopener" aria-label="Open image: Troll encounter with the new ice wall visible behind the enemies"><img src="assets/images/troll-after.jpg" alt="Troll encounter with the new ice wall visible behind the enemies" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>After / V0.2: an ice wall keeps the encounter within its boundary.</figcaption></figure></div>
+      <p><strong>Observed problem.</strong> Leaving and re-entering the encounter could prevent the final cinematic and transfer to the avalanche section, blocking normal progression.</p>
+      <p><strong>Decision and tradeoff.</strong> I added an ice wall that activates during combat and disappears when the final cinematic starts. It blocks the observed route to the failure, at the cost of retreat freedom. I did not isolate the internal state failure, so this is a containment measure.</p>
+      <p><strong>Verification.</strong> On 7 September 2026, I tested exits, slopes, jumping and attacks in both the editor and packaged V0.2. The boundaries held and subsequent progression worked within these checks. External retesting remains pending.</p>
+      <p class="caption">Original evidence: participant B, first run, 09:20–10:35.</p>
+    </article>
+    <article class="module"><h3>6. Iteration: Clarifying the Avalanche</h3><div class="comparison-grid">
+      <figure class="evidence-image "><a href="assets/images/avalanche-before.jpg" target="_blank" rel="noopener" aria-label="Open image: Participant A attempts to jump through visible gaps between snowballs"><img src="assets/images/avalanche-before.jpg" alt="Participant A attempts to jump through visible gaps between snowballs" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>Before / V0.1: visible gaps suggested a possible route.</figcaption></figure>
+      <figure class="evidence-image "><a href="assets/images/avalanche-after.jpg" target="_blank" rel="noopener" aria-label="Open image: Denser and larger snowballs form the revised avalanche front"><img src="assets/images/avalanche-after.jpg" alt="Denser and larger snowballs form the revised avalanche front" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>After / V0.2: larger, denser snowballs reduce visible gaps.</figcaption></figure></div>
+      <p><strong>Observed problem.</strong> A moved towards the avalanche and tried to jump through the gaps. Its appearance suggested a route, while a continuous hidden trigger defined the failure area.</p>
+      <p><strong>Change.</strong> I increased snowball size and density to make the threat appear continuous and bring its appearance closer to the implemented rule.</p>
+      <p><strong>Verification and limit.</strong> Developer tests on 7 September 2026 confirmed the change appeared and the flow remained completable in the editor and packaged V0.2. Whether unfamiliar players understand it more readily still needs an external test.</p>
+      <p class="caption">Original evidence: participant A, 08:58–09:16, supported by discussion.</p>
+    </article>
+    <article class="module"><h3>7. Results and Reflection</h3><p>The prototype now connects the opening village to the boss and ending. Testing showed that route completion alone does not establish understanding: C knew where to go but was unsure why; A inferred an action from misleading visual gaps; B exposed a failure outside the intended combat boundary.</p><p>My next priorities are to observe unfamiliar players at the revised avalanche, clarify the opening objective and check whether players can explain it, and investigate encounter state and reset logic if the level grows. The experience retains a strongly directed flow and prototype-level polish.</p></article>
+    <article class="module"><h3>8. My Contribution and Asset Credits</h3><p>I designed the terrain, spatial layout, gameplay systems, encounters, boss fight and narrative flow. I implemented and integrated the interface, cinematics and gameplay using Blueprint and C++, with AI-assisted technical guidance and debugging. I was responsible for design decisions, integration, testing and final validation.</p><p>Character meshes are licensed third-party assets. Environment assets are primarily licensed assets arranged within my terrain and level compositions. Animation, effects, textures and materials combine licensed assets with work I created or modified. Audio and music came from AI tools or asset sources and were selected and integrated by me.</p><p>The design originated in my work on an unreleased commercial project. This portfolio version was independently rebuilt from the ground up without proprietary project assets or confidential content. Its documentation was rewritten for the reconstruction.</p></article>
+  </div></div>
+</section>
 
-            <div class="detail-layout">
-                <aside class="sidebar-box">
-                    <h3>Project Summary</h3>
-                    <ul class="check-list">
-                        <li><strong>Genre:</strong> Third-person action-adventure dungeon</li>
-                        <li><strong>Design Focus:</strong> level flow, environmental narrative, player-driven route decisions</li>
-                        <li><strong>Current Stage:</strong> UE5 whitebox / mechanic prototyping</li>
-                        <li><strong>Target Proof:</strong> level design as integrated gameplay architecture</li>
-                    </ul>
 
-                    <div class="note">
-                        Later: add a 90-second walkthrough video and a top-down annotated level map here.
-                    </div>
-                </aside>
 
-                <div>
-                    <div class="module">
-                        <h3>1. Design Pillar</h3>
-                        <p>
-                            Placeholder: Explain the core design statement of this dungeon.
-                            Example: "The player should understand the world, danger, and available choices through the environment before relying on explicit instruction."
-                        </p>
-                    </div>
 
-                    <div class="module">
-                        <h3>2. Level Flow Overview</h3>
-                        <div class="media-placeholder">Replace with: full level flow diagram / annotated top-down map</div>
-                        <table class="table">
-                            <tr>
-                                <th>Stage</th>
-                                <th>Player Experience Goal</th>
-                                <th>Level Design Function</th>
-                            </tr>
-                            <tr>
-                                <td>Village</td>
-                                <td>Low-pressure orientation and narrative setup.</td>
-                                <td>Introduce context, destination, and visual anchors.</td>
-                            </tr>
-                            <tr>
-                                <td>Cave</td>
-                                <td>Tool discovery and safe learning.</td>
-                                <td>Teach the ice-block tool through spatial affordance.</td>
-                            </tr>
-                            <tr>
-                                <td>Avalanche / River</td>
-                                <td>Pressure escalation and route commitment.</td>
-                                <td>Turn tool understanding into traversal decisions.</td>
-                            </tr>
-                            <tr>
-                                <td>Boss Space</td>
-                                <td>Final application of learned spatial rules.</td>
-                                <td>Unify environment, tool, threat, and narrative resolution.</td>
-                            </tr>
-                        </table>
-                    </div>
 
-                    <div class="module">
-                        <h3>3. Player Agency</h3>
-                        <p>
-                            Placeholder: Document where players can make meaningful choices.
-                            Focus on optional routes, alternate uses of the ice-block tool, risk/reward paths,
-                            and moments where the player solves space rather than follows instructions.
-                        </p>
-                    </div>
 
-                    <div class="module">
-                        <h3>4. Environmental Storytelling</h3>
-                        <p>
-                            Placeholder: Explain how the village, cave, broken terrain, water, snow, and boss arena communicate story and danger through layout.
-                            Include before/after screenshots and prop/narrative intent later.
-                        </p>
-                    </div>
 
-                    <div class="module">
-                        <h3>5. Iteration Log</h3>
-                        <table class="table">
-                            <tr>
-                                <th>Version</th>
-                                <th>Problem Found</th>
-                                <th>Design Change</th>
-                                <th>Player Experience Impact</th>
-                            </tr>
-                            <tr>
-                                <td>V1</td>
-                                <td>Placeholder: unclear tool affordance / path readability issue.</td>
-                                <td>Placeholder: adjusted layout, landmark, spacing, or hint structure.</td>
-                                <td>Placeholder: player understood route or choice faster.</td>
-                            </tr>
-                            <tr>
-                                <td>V2</td>
-                                <td>Placeholder.</td>
-                                <td>Placeholder.</td>
-                                <td>Placeholder.</td>
-                            </tr>
-                            <tr>
-                                <td>V3</td>
-                                <td>Placeholder.</td>
-                                <td>Placeholder.</td>
-                                <td>Placeholder.</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section class="detail" id="project-level-02">
-            <div class="detail-header">
-                <div class="eyebrow">Future Project · Level Whitebox</div>
-                <h2>Whitebox Level 02 — Exploration & Choice</h2>
-                <p>
-                    Placeholder project for a future deep level-design study focused on spatial readability,
-                    optional routes, landmarks, and player-led exploration.
-                </p>
-            </div>
-
-            <div class="detail-layout">
-                <aside class="sidebar-box">
-                    <h3>Recommended Scope</h3>
-                    <ul class="check-list">
-                        <li>15–20 minute whitebox level</li>
-                        <li>One main route + two optional routes</li>
-                        <li>Landmark-based navigation</li>
-                        <li>Environmental storytelling without cutscenes</li>
-                    </ul>
-                </aside>
-
-                <div>
-                    <div class="module">
-                        <h3>Design Question</h3>
-                        <p>
-                            Placeholder: How can a level make players feel they discovered a path themselves while still staying readable?
-                        </p>
-                    </div>
-                    <div class="module">
-                        <h3>Required Future Content</h3>
-                        <ul>
-                            <li>Top-down flow map</li>
-                            <li>Route-choice diagram</li>
-                            <li>Landmark plan</li>
-                            <li>Iteration log</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="detail" id="project-level-03">
-            <div class="detail-header">
-                <div class="eyebrow">Future Project · Encounter Whitebox</div>
-                <h2>Whitebox Level 03 — Combat Space & Pacing</h2>
-                <p>
-                    Placeholder project for a future combat-space study focused on encounter flow, cover logic,
-                    enemy composition, flank routes, pressure control, and level pacing.
-                </p>
-            </div>
-
-            <div class="detail-layout">
-                <aside class="sidebar-box">
-                    <h3>Recommended Scope</h3>
-                    <ul class="check-list">
-                        <li>One compact combat level</li>
-                        <li>3 encounter phases</li>
-                        <li>At least two viable player routes</li>
-                        <li>Clear pressure/release rhythm</li>
-                    </ul>
-                </aside>
-
-                <div>
-                    <div class="module">
-                        <h3>Design Question</h3>
-                        <p>
-                            Placeholder: How can space teach threat priority, encourage repositioning, and support multiple combat solutions?
-                        </p>
-                    </div>
-                    <div class="module">
-                        <h3>Required Future Content</h3>
-                        <ul>
-                            <li>Encounter map</li>
-                            <li>Enemy placement rationale</li>
-                            <li>Pressure curve</li>
-                            <li>Iteration log</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="detail" id="project-fps">
-            <div class="detail-header">
-                <div class="eyebrow">Supporting Project · Combat-Aware Level Design</div>
-                <h2>FPS Tutorial Level — Information Creates Advantage</h2>
-                <p>
-                    A first-level FPS prototype designed to teach players that gathering information, choosing better positions,
-                    and planning movement can create advantages in combat.
-                </p>
-                <div class="tag-list">
-                    <span class="tag">FPS</span>
-                    <span class="tag">Tutorial Level</span>
-                    <span class="tag">Combat Readability</span>
-                    <span class="tag">Player Learning</span>
-                    <span class="tag">UE Whitebox</span>
-                </div>
-            </div>
-
-            <div class="detail-layout">
-                <aside class="sidebar-box">
-                    <h3>Role in Portfolio</h3>
-                    <p>
-                        This project should support the main Level Designer positioning by proving combat awareness,
-                        information design, and encounter-space reasoning.
-                    </p>
-                </aside>
-
-                <div>
-                    <div class="module">
-                        <h3>1. Design Problem</h3>
-                        <p>
-                            Placeholder: Players often rush into combat without understanding enemy location, route structure, or positional advantage.
-                        </p>
-                    </div>
-                    <div class="module">
-                        <h3>2. Experience Curve</h3>
-                        <table class="table">
-                            <tr>
-                                <th>Phase</th>
-                                <th>Learning Goal</th>
-                                <th>Experience Goal</th>
-                            </tr>
-                            <tr>
-                                <td>Start Area</td>
-                                <td>Basic movement readability.</td>
-                                <td>Safe orientation.</td>
-                            </tr>
-                            <tr>
-                                <td>First Combat</td>
-                                <td>Distance, dash, cover, target priority.</td>
-                                <td>Controlled pressure.</td>
-                            </tr>
-                            <tr>
-                                <td>Observation Room</td>
-                                <td>Information before commitment.</td>
-                                <td>Curiosity and control.</td>
-                            </tr>
-                            <tr>
-                                <td>Final Combat</td>
-                                <td>Incomplete information and careful movement.</td>
-                                <td>Tense but fair mastery test.</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="module">
-                        <h3>3. Iteration Evidence</h3>
-                        <p>
-                            Placeholder: Convert current notes into V1/V2/V3 format with problem, change, and player-experience impact.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="detail" id="project-blessing">
-            <div class="detail-header">
-                <div class="eyebrow">Supporting Project · Systemic Experience Design</div>
-                <h2>Blessing</h2>
-                <p>
-                    A satirical incremental game that uses behavior loops, feedback systems, UI pressure, and escalating workplace collapse
-                    to create a strong systemic player experience.
-                </p>
-                <div class="tag-list">
-                    <span class="tag">Systemic Experience</span>
-                    <span class="tag">Satire</span>
-                    <span class="tag">Behavior Simulation</span>
-                    <span class="tag">Feedback Loop</span>
-                </div>
-            </div>
-
-            <div class="detail-layout">
-                <aside class="sidebar-box">
-                    <h3>Role in Portfolio</h3>
-                    <p>
-                        This project should not compete with the level-design main track. It should prove that you can design
-                        emotional pressure, feedback loops, and systemic player experience.
-                    </p>
-                </aside>
-
-                <div>
-                    <div class="module">
-                        <h3>1. Experience Goal</h3>
-                        <p>
-                            Placeholder: Explain the intended emotional arc: early control, mid-game acceleration, late-stage ethical collapse.
-                        </p>
-                    </div>
-                    <div class="module">
-                        <h3>2. System Loop</h3>
-                        <p>
-                            Placeholder: Add a diagram showing player action → income → hiring/upgrades → employee states → pressure feedback.
-                        </p>
-                    </div>
-                    <div class="module">
-                        <h3>3. Why It Supports Level Design</h3>
-                        <p>
-                            Placeholder: Connect the project to your ability to shape player experience through structure, pacing,
-                            feedback, and readable consequences.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section id="skills">
             <div class="section-head">
                 <h2>Skills</h2>
                 <p>
-                    Keep this concise. Recruiters should see a Level Designer first, with supporting combat and systemic design awareness.
+                    Level design and gameplay implementation, supported by testing, documentation and integration in Unreal Engine.
                 </p>
             </div>
 
@@ -1331,67 +798,7 @@
         </footer>
     </main>
 
-    <script>
-        (function () {
-            // Change this key before publishing.
-            // Important: this is only a lightweight front-end gate, not real security.
-            const ACCESS_KEY = "cw-preview-2026";
-            const STORAGE_KEY = "chris_portfolio_preview_unlocked";
 
-            const body = document.body;
-            const gate = document.getElementById("constructionGate");
-            const trigger = document.getElementById("unlockTrigger");
-            const panel = document.getElementById("unlockPanel");
-            const input = document.getElementById("accessKeyInput");
-            const submit = document.getElementById("accessKeySubmit");
-            const error = document.getElementById("accessKeyError");
-
-            function showPortfolio() {
-                body.classList.remove("portfolio-locked");
-                body.classList.add("portfolio-unlocked");
-                if (gate) {
-                    gate.setAttribute("hidden", "");
-                }
-                sessionStorage.setItem(STORAGE_KEY, "true");
-            }
-
-            function showGate() {
-                body.classList.add("portfolio-locked");
-                body.classList.remove("portfolio-unlocked");
-            }
-
-            function openUnlockPanel() {
-                panel.hidden = false;
-                error.textContent = "";
-                input.focus();
-            }
-
-            function verifyAccessKey() {
-                if (input.value.trim() === ACCESS_KEY) {
-                    showPortfolio();
-                    return;
-                }
-
-                error.textContent = "Incorrect key.";
-                input.select();
-            }
-
-            if (sessionStorage.getItem(STORAGE_KEY) === "true") {
-                showPortfolio();
-            } else {
-                showGate();
-            }
-
-            trigger.addEventListener("click", openUnlockPanel);
-            submit.addEventListener("click", verifyAccessKey);
-
-            input.addEventListener("keydown", function (event) {
-                if (event.key === "Enter") {
-                    verifyAccessKey();
-                }
-            });
-        })();
-    </script>
 
 </body>
 </html>
