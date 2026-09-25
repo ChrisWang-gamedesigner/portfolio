@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Wrath of Gonggong by Chris Wang: level design, ice creation, playtesting and iteration in an Unreal Engine 5.7 RPG prototype. Read the case study and download the playable Windows build.">
+    <title>The Wrath of Gonggong — Chris Wang</title>
+
+    <link rel="stylesheet" href="assets/portfolio.css">
+</head>
+<body class="project-page">
+  <div class="topbar"><div class="topbar-inner">
+    <a class="brand" href="index.html">Chris Wang</a>
+    <nav aria-label="Project navigation"><a href="index.html#level-projects">Portfolio</a><a href="#process">Design Process</a><a href="#case-study">Case Study</a><a href="#materials">Materials</a></nav>
+  </div></div>
+  <main class="page project-page-content">
+    <a class="back-link" href="index.html#level-projects">← Back to portfolio</a>
+    <header class="detail-header" id="project-gonggong"><div class="eyebrow">Featured project · Level &amp; gameplay design</div><h1>The Wrath of Gonggong</h1>
+    <p>A third-person, single-player RPG level and gameplay prototype. Players investigate a disturbance on Mount Buzhou, moving through villages, mountain passages, an avalanche escape and a final boss encounter.</p>
+    <div class="tag-list"><span class="tag">Solo Design &amp; Implementation</span><span class="tag">Windows 64-bit</span><span class="tag">Playable V0.2</span><span class="tag">Unreal Engine 5.7</span></div>
+    <div class="cta-row"><a class="btn primary" href="https://github.com/ChrisWang-gamedesigner/portfolio/releases/download/V0.2/The_Wrath_of_Gonggong_V0.2_Windows.zip">Download game · 1.35 GB</a><a class="btn secondary" href="assets/documents/The_Wrath_of_Gonggong_Case_Study.pdf" target="_blank" rel="noopener">Read case study PDF · 7 pages</a></div></header>
+    <section id="process">
+            <div class="section-head">
+                <h2>Design Process</h2>
+                <p>
+                    I connect the intended experience to spatial decisions, then use playtest observations to choose changes and record what the evidence supports.
+                </p>
+            </div>
+
+            <div class="process-strip">
+                <div class="step">
+                    <b>1</b>
+                    <h3>Design Intent</h3>
+                    <p>What player experience should this level create?</p>
+                </div>
+                <div class="step">
+                    <b>2</b>
+                    <h3>Spatial Plan</h3>
+                    <p>Routes, landmarks, encounter spaces and the conditions that change how a tool is used.</p>
+                </div>
+                <div class="step">
+                    <b>3</b>
+                    <h3>Playtest Diagnosis</h3>
+                    <p>What did players misunderstand, miss, rush, avoid, or exploit?</p>
+                </div>
+                <div class="step">
+                    <b>4</b>
+                    <h3>Iteration Evidence</h3>
+                    <p>Document the problem, the change, its tradeoff and what still needs testing.</p>
+                </div>
+            </div>
+        </section>
+    <section class="project-case" id="case-study" aria-label="Project case study">
+      <div class="detail-layout">
+        <aside class="sidebar-box project-summary" aria-labelledby="summary-heading"><h2 id="summary-heading">Project Summary</h2>
+<dl class="summary-list"><dt>My role</dt><dd>Solo level, gameplay and systems designer; technical implementation and integration.</dd><dt>Focus</dt><dd>Level flow, repeated use of ice creation, local route choices and encounter progression.</dd><dt>Tools</dt><dd>Blueprint, C++, Landscape, UMG, Sequencer and Niagara.</dd><dt>Testing</dt><dd>Three external V0.1 testers; V0.2 developer regression. External V0.2 retesting is pending.</dd></dl></aside>
+        <div class="case-content">
+    <article class="module"><h3>1. Design Intent</h3><p>I wanted a familiar tool to gain new uses as the surrounding conditions changed. Ice creation first solves a water crossing, then becomes a route choice, an escape tool and a way to maintain safe footing during combat.</p><p>The main route is linear. Local choices affect the route, later dialogue or available combat advantages; they do not create separate main storylines.</p></article>
+    <article class="module"><h3>2. Level Flow</h3>
+      <figure class="evidence-image "><a href="assets/images/village-layout.jpg" target="_blank" rel="noopener" aria-label="Open image: Annotated editor overview of the starting village, with route and mountain landmark"><img src="assets/images/village-layout.jpg" alt="Annotated editor overview of the starting village, with route and mountain landmark" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>Editor overview: buildings shape the starting route; the mountain serves as an intended directional landmark.</figcaption></figure>
+      <div class="table-scroll" role="region" aria-label="Eight-area level flow" tabindex="0"><table class="table"><thead><tr><th scope="col">Area</th><th scope="col">Player activity</th><th scope="col">Design purpose</th></tr></thead><tbody><tr><th scope="row">Starting village</th><td>Movement and combat</td><td>Buildings define the route; the distant mountain is intended as a directional landmark.</td></tr><tr><th scope="row">Cave pool</th><td>Acquire and try the relic</td><td>Learn ice creation without combat or pursuit; rescuing the child is optional.</td></tr><tr><th scope="row">Taoyuan waters</th><td>Choose a bridge or ice route</td><td>Encourage voluntary reuse of the tool and exploration for golden offerings.</td></tr><tr><th scope="row">Taoyuan village</th><td>Resolve an encounter</td><td>Return to combat and reveal the background; rescuing the child changes the explanation.</td></tr><tr><th scope="row">Blizzard passage</th><td>Navigate reduced visibility</td><td>Ground cues guide movement while the change in visibility builds tension.</td></tr><tr><th scope="row">Sheltered valley</th><td>Fight three trolls</td><td>Survivors grow stronger; a cinematic knockback leads into the escape.</td></tr><tr><th scope="row">Avalanche and river</th><td>Escape and cross water</td><td>Apply the familiar tool under pursuit pressure.</td></tr><tr><th scope="row">Boss cave</th><td>Manage footing and attacks</td><td>Combine ice creation, positioning and the offerings collected earlier.</td></tr></tbody></table></div>
+      <p class="caption">Flow reconstructed from the current build and development notes.</p>
+    </article>
+    <article class="module"><h3>3. Teaching and Reusing Ice Creation</h3><div class="mechanic-grid"><article class="mechanic-stage"><div class="project-kicker">01 / Learn</div><h4>Cave pool</h4><figure class="evidence-image "><a href="assets/images/ice-learning.jpg" target="_blank" rel="noopener" aria-label="Open image: Created ice platforms form a route through the cave pool"><img src="assets/images/ice-learning.jpg" alt="Created ice platforms form a route through the cave pool" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>Gameplay capture</figcaption></figure><p>Recognise the water obstacle, place ice and stand on it to cross. Dialogue discourages wading; the exit provides a destination.</p></article><article class="mechanic-stage"><div class="project-kicker">02 / Choose</div><h4>Taoyuan waters</h4><figure class="evidence-image "><a href="assets/images/ice-choice.jpg" target="_blank" rel="noopener" aria-label="Open image: Annotated bridge route and direct water route at Taoyuan waters"><img src="assets/images/ice-choice.jpg" alt="Annotated bridge route and direct water route at Taoyuan waters" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>Gameplay capture</figcaption></figure><p>Follow the bridges or create a more direct route across the water. Golden offerings encourage exploration and later provide a way to weaken the boss.</p></article><article class="mechanic-stage"><div class="project-kicker">03 / Apply under pressure</div><h4>Avalanche river</h4><figure class="evidence-image "><a href="assets/images/ice-pressure.jpg" target="_blank" rel="noopener" aria-label="Open image: The player faces the river and distant cave during the escape"><img src="assets/images/ice-pressure.jpg" alt="The player faces the river and distant cave during the escape" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>Gameplay capture</figcaption></figure><p>Cross the river before the avalanche catches up. A riverbank ice block recalls the tool, while the distant cave indicates the destination.</p></article><article class="mechanic-stage"><div class="project-kicker">04 / Combine</div><h4>Boss cave</h4><figure class="evidence-image "><a href="assets/images/ice-combat.jpg" target="_blank" rel="noopener" aria-label="Open image: The player stands on a created ice platform during the boss encounter"><img src="assets/images/ice-combat.jpg" alt="The player stands on a created ice platform during the boss encounter" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>Gameplay capture</figcaption></figure><p>Create safe footing as terrain collapses and water penalises the player. Fit ice placement around movement, attack warnings and combat openings.</p></article></div><p>All three testers used the relic to cross water after trying it, and participant A particularly enjoyed ice traversal. These observations provide initial support for the mechanic; the four stages describe my intended progression, not a measured learning curve.</p></article>
+    <article class="module"><h3>4. External Playtesting</h3><p>Three participants with different levels of gaming experience tested V0.1 on 28 August 2026. I reviewed recordings and feedback, then compiled the written summary retrospectively.</p>
+      <ul class="check-list"><li><strong>A / Extensive experience:</strong> Enjoyed ice traversal, but repeatedly tried to jump through the avalanche and criticised the overall polish.</li><li><strong>B / Moderate experience:</strong> Pulled trolls out of the encounter and triggered a progression failure. Bypassed terrain on the first run, then completed the intended flow on a repeat V0.1 run without pulling trolls out.</li><li><strong>C / Limited experience:</strong> Used the core mechanic and completed the level, but reported unclear goals and a feeling of being pushed through the experience.</li></ul>
+      <p>These are qualitative observations from a small sample. B's replay used the same V0.1 build and is not evidence of improvement after the changes.</p>
+    </article>
+    <article class="module"><h3>5. Iteration: Containing the Troll Encounter</h3><div class="comparison-grid">
+      <figure class="evidence-image "><a href="assets/images/troll-before.jpg" target="_blank" rel="noopener" aria-label="Open image: Defeated trolls without the intended transition"><img src="assets/images/troll-before.jpg" alt="Defeated trolls without the intended transition" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>Before / V0.1: the final troll died without triggering the cinematic.</figcaption></figure>
+      <figure class="evidence-image "><a href="assets/images/troll-after.jpg" target="_blank" rel="noopener" aria-label="Open image: Troll encounter with the new ice wall visible behind the enemies"><img src="assets/images/troll-after.jpg" alt="Troll encounter with the new ice wall visible behind the enemies" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>After / V0.2: an ice wall keeps the encounter within its boundary.</figcaption></figure></div>
+      <p><strong>Observed problem.</strong> Leaving and re-entering the encounter could prevent the final cinematic and transfer to the avalanche section, blocking normal progression.</p>
+      <p><strong>Decision and tradeoff.</strong> I added an ice wall that activates during combat and disappears when the final cinematic starts. It blocks the observed route to the failure, at the cost of retreat freedom. I did not isolate the internal state failure, so this is a containment measure.</p>
+      <p><strong>Verification.</strong> On 7 September 2026, I tested exits, slopes, jumping and attacks in both the editor and packaged V0.2. The boundaries held and subsequent progression worked within these checks. External retesting remains pending.</p>
+      <p class="caption">Original evidence: participant B, first run, 09:20–10:35.</p>
+    </article>
+    <article class="module"><h3>6. Iteration: Clarifying the Avalanche</h3><div class="comparison-grid">
+      <figure class="evidence-image "><a href="assets/images/avalanche-before.jpg" target="_blank" rel="noopener" aria-label="Open image: Participant A attempts to jump through visible gaps between snowballs"><img src="assets/images/avalanche-before.jpg" alt="Participant A attempts to jump through visible gaps between snowballs" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>Before / V0.1: visible gaps suggested a possible route.</figcaption></figure>
+      <figure class="evidence-image "><a href="assets/images/avalanche-after.jpg" target="_blank" rel="noopener" aria-label="Open image: Denser and larger snowballs form the revised avalanche front"><img src="assets/images/avalanche-after.jpg" alt="Denser and larger snowballs form the revised avalanche front" loading="lazy" decoding="async" width="1500" height="780"></a><figcaption>After / V0.2: larger, denser snowballs reduce visible gaps.</figcaption></figure></div>
+      <p><strong>Observed problem.</strong> A moved towards the avalanche and tried to jump through the gaps. Its appearance suggested a route, while a continuous hidden trigger defined the failure area.</p>
+      <p><strong>Change.</strong> I increased snowball size and density to make the threat appear continuous and bring its appearance closer to the implemented rule.</p>
+      <p><strong>Verification and limit.</strong> Developer tests on 7 September 2026 confirmed the change appeared and the flow remained completable in the editor and packaged V0.2. Whether unfamiliar players understand it more readily still needs an external test.</p>
+      <p class="caption">Original evidence: participant A, 08:58–09:16, supported by discussion.</p>
+    </article>
+    <article class="module"><h3>7. Results and Reflection</h3><p>The prototype now connects the opening village to the boss and ending. Testing showed that route completion alone does not establish understanding: C knew where to go but was unsure why; A inferred an action from misleading visual gaps; B exposed a failure outside the intended combat boundary.</p><p>My next priorities are to observe unfamiliar players at the revised avalanche, clarify the opening objective and check whether players can explain it, and investigate encounter state and reset logic if the level grows. The experience retains a strongly directed flow and prototype-level polish.</p></article>
+    <article class="module"><h3>8. My Contribution and Asset Credits</h3><p>I designed the terrain, spatial layout, gameplay systems, encounters, boss fight and narrative flow. I implemented and integrated the interface, cinematics and gameplay using Blueprint and C++, with AI-assisted technical guidance and debugging. I was responsible for design decisions, integration, testing and final validation.</p><p>Character meshes are licensed third-party assets. Environment assets are primarily licensed assets arranged within my terrain and level compositions. Animation, effects, textures and materials combine licensed assets with work I created or modified. Audio and music came from AI tools or asset sources and were selected and integrated by me.</p><p>The design originated in my work on an unreleased commercial project. This portfolio version was independently rebuilt from the ground up without proprietary project assets or confidential content. Its documentation was rewritten for the reconstruction.</p></article></div>
+        <aside class="sidebar-box project-materials" id="materials" aria-labelledby="materials-heading"><h2 id="materials-heading">Project Materials</h2><ul class="material-links"><li><a href="https://github.com/ChrisWang-gamedesigner/portfolio/releases/download/V0.2/The_Wrath_of_Gonggong_V0.2_Windows.zip">Download Windows build</a><span>V0.2 · ZIP · 1.35 GB</span></li>
+      <li><a href="assets/documents/The_Wrath_of_Gonggong_Case_Study.pdf" target="_blank" rel="noopener">English case study PDF</a><span>7 pages · 3.3 MB</span></li>
+      <li><a href="https://github.com/ChrisWang-gamedesigner/portfolio/releases/download/V0.2/FinalDemo.mp4">Download full gameplay video</a><span>MP4 · 583 MB</span></li>
+      <li><a href="assets/documents/README.txt" target="_blank" rel="noopener">Controls &amp; launch instructions</a></li>
+      <li><a href="https://github.com/ChrisWang-gamedesigner/portfolio/releases/tag/V0.2" target="_blank" rel="noopener">V0.2 release notes</a></li></ul>
+    <details><summary>How to play</summary><p>Extract the complete ZIP and run <strong>Gonggong.exe</strong>. Keep the Engine and Gonggong folders beside it. Requires Windows 64-bit and DirectX 12 / Shader Model 6 capable graphics hardware.</p>
+      <ul class="check-list"><li><strong>WASD:</strong> move; <strong>mouse:</strong> camera.</li><li><strong>Space:</strong> jump; <strong>E:</strong> interact.</li><li><strong>Left click:</strong> attack when not placing ice.</li><li><strong>Q:</strong> select the ice relic after acquiring it; move the mouse, then left click to place ice.</li><li><strong>1 / 2 / 3:</strong> skills; <strong>R:</strong> dungeon item.</li><li><strong>Alt+F4:</strong> exit. No pause or dedicated dodge action.</li></ul>
+    </details>
+  </aside>
+      </div>
+    </section>
+    <footer>
+            <p>© 2026 Chris Wang. Level Designer Portfolio.</p>
+        </footer>
+  </main>
+</body>
+</html>
