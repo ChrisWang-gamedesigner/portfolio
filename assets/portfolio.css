@@ -71,12 +71,12 @@ nav {
     color: var(--muted);
 }
 
-nav a {
+nav a, nav button {
     text-decoration: none;
     font-weight: 700;
 }
 
-nav a:hover {
+nav a:hover, nav button:hover {
     color: var(--ink);
     text-decoration: underline;
     text-underline-offset: 4px;
@@ -572,6 +572,8 @@ summary { font-weight: 700; cursor: pointer; }
 .project-title a:hover, .project-title a:focus-visible { color: #bfe8d9; }
 .brand { text-decoration: none; }
 button { font: inherit; }
+nav button { padding: 0; border: 0; background: none; color: inherit; font-weight: 700; cursor: pointer; }
+button.btn { cursor: pointer; }
 button:focus-visible { outline: 3px solid #d2a33a; outline-offset: 4px; }
 [hidden] { display: none !important; }
 .sr-only {

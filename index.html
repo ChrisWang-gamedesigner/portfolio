@@ -6,6 +6,7 @@
     <meta name="description" content="Chris Wang — Level Designer. Explore The Wrath of Gonggong: a playable Unreal Engine 5.7 RPG prototype, with level flow, ice creation, playtest iterations and a downloadable case study.">
     <title>Chris Wang — Level Designer Portfolio</title>
 
+    <script src="assets/home-navigation.js"></script>
     <link rel="stylesheet" href="assets/portfolio.css">
     <script src="assets/carousel.js" defer></script>
 </head>
@@ -16,10 +17,10 @@
         <div class="topbar-inner">
             <div class="brand">Chris Wang</div>
             <nav>
-                <a href="#about">About</a>
-                <a href="#level-projects">Featured Project</a>
+                <button type="button" data-scroll-target="about">About</button>
+                <button type="button" data-scroll-target="level-projects">Featured Project</button>
 
-                <a href="#contact">Contact</a>
+                <button type="button" data-scroll-target="contact">Contact</button>
             </nav>
         </div>
     </div>
@@ -37,7 +38,7 @@
                 </p>
 
                 <div class="cta-row">
-                    <a class="btn primary" href="#level-projects">View Level Design Work</a>
+                    <button class="btn primary" type="button" data-scroll-target="level-projects">View Level Design Work</button>
                     <a class="btn secondary" href="gonggong.html#process" target="_blank" rel="noopener">View Design Process</a>
                 </div>
             </div>
