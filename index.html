@@ -22,49 +22,157 @@
         <div class="topbar-inner">
             <div class="brand">Chris Wang</div>
             <nav>
-                <button type="button" data-scroll-target="about">About</button>
-                <button type="button" data-scroll-target="level-projects">Featured Projects</button>
-
+                <button type="button" data-scroll-target="projects">Projects</button>
+                <a href="cv.html" target="_blank" rel="noopener">CV<span class="sr-only"> (opens in a new tab)</span></a>
                 <button type="button" data-scroll-target="contact">Contact</button>
             </nav>
         </div>
     </div>
 
     <main class="page">
-        <header class="hero" id="top">
-            <div>
+        <header class="hero hero-compact" id="top">
+            <div class="eyebrow">Level Designer</div>
+            <h1>Chris Wang</h1>
+            <p class="role">I build level spaces that turn story context into player-driven decisions.</p>
+            <p class="hero-copy">
+                Focused on level design, environmental storytelling, player agency, and spatial gameplay structure.
+            </p>
+        </header>
+
+        <section id="projects">
+            <div class="section-head stack">
+                <h2>Projects</h2>
+                <p>Selected work that shows how level space, systems, and iteration shape player decisions.</p>
+            </div>
+
+            <div class="grid two featured-projects">
+                <article class="card project-card featured">
+                    <div class="project-kicker">Solo project · Playable V0.2</div>
+                    <h3 class="project-title"><a href="gonggong.html" target="_blank" rel="noopener">The Wrath of Gonggong<span class="sr-only"> (opens in a new tab)</span></a></h3>
+                    <p>Explore mountain villages, create paths across water, escape an avalanche and adapt to a changing boss arena. One tool takes on different roles as the level changes the pressure around it.</p>
+                    <div class="carousel" role="region" aria-roledescription="carousel" aria-label="The Wrath of Gonggong screenshots" data-carousel>
+                        <div class="carousel-viewport" tabindex="0" aria-label="Project screenshots. Use the left and right arrow keys to change images.">
+                            <div class="carousel-track">
+                                <figure class="carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 6" data-caption="Cave pool · Learning to create ice">
+                                    <img src="assets/images/ice-learning.jpg" alt="The player stands on an ice platform while crossing the cave pool" width="1476" height="762" loading="lazy" decoding="async" draggable="false">
+                                </figure>
+                                <figure class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 6" data-caption="Taoyuan waters · Choosing a route">
+                                    <img src="assets/images/ice-choice.jpg" alt="Annotated gameplay view of the bridge route and the direct route across water" width="1563" height="785" loading="lazy" decoding="async" draggable="false">
+                                </figure>
+                                <figure class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 6" data-caption="Sheltered valley · The revised troll encounter">
+                                    <img src="assets/images/troll-after.jpg" alt="Three trolls inside the revised encounter with its ice wall visible" width="1269" height="639" loading="lazy" decoding="async" draggable="false">
+                                </figure>
+                                <figure class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 6" data-caption="Avalanche · Making the threat clearer">
+                                    <img src="assets/images/avalanche-after.jpg" alt="The revised avalanche front with larger and more densely arranged snowballs" width="1263" height="617" loading="lazy" decoding="async" draggable="false">
+                                </figure>
+                                <figure class="carousel-slide" role="group" aria-roledescription="slide" aria-label="5 of 6" data-caption="Avalanche river · Crossing under pressure">
+                                    <img src="assets/images/ice-pressure.jpg" alt="The river and distant cave ahead of the player during the escape" width="1473" height="747" loading="lazy" decoding="async" draggable="false">
+                                </figure>
+                                <figure class="carousel-slide" role="group" aria-roledescription="slide" aria-label="6 of 6" data-caption="Boss cave · Creating safe footing">
+                                    <img src="assets/images/ice-combat.jpg" alt="The player uses a created ice platform during the boss encounter" width="1521" height="783" loading="lazy" decoding="async" draggable="false">
+                                </figure>
+                            </div>
+                            <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous screenshot" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
+                            <button class="carousel-arrow carousel-next" type="button" aria-label="Next screenshot" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
+                        </div>
+                        <div class="carousel-footer">
+                            <p class="carousel-caption">Cave pool · Learning to create ice</p>
+                        </div>
+                        <span class="sr-only carousel-announcement" aria-live="polite" aria-atomic="true"></span>
+                    </div>
+                    <div class="tag-list">
+                        <span class="tag">Level Design</span>
+                        <span class="tag">Ice Creation</span>
+                        <span class="tag">Encounter Design</span>
+                        <span class="tag">Playtest Iteration</span>
+                        <span class="tag">Unreal Engine 5.7</span>
+                    </div>
+                </article>
+
+                <article class="card project-card featured placeholder" aria-label="Blessing project placeholder">
+                    <div class="project-kicker">In progress · Placeholder</div>
+                    <h3 class="project-title">Blessing</h3>
+                    <p>A systems-forward prototype about institutional blessings. Case study and playable build coming soon.</p>
+                    <div class="placeholder-media" role="img" aria-label="Screenshot placeholder for Blessing">
+                        <span>Project media coming soon</span>
+                    </div>
+                    <div class="tag-list">
+                        <span class="tag">System Design</span>
+                        <span class="tag">Satire</span>
+                        <span class="tag">Prototype</span>
+                    </div>
+                </article>
+
+                <article class="card project-card featured placeholder" aria-label="CodePunk project placeholder">
+                    <div class="project-kicker">Narrative Prototype</div>
+                    <h3 class="project-title">CodePunk</h3>
+                    <p>Branching third-person narrative about ordinary life under pandemic codes and control systems.</p>
+                    <div class="placeholder-media" role="img" aria-label="Screenshot placeholder for CodePunk">
+                        <span>Project media coming soon</span>
+                    </div>
+                    <div class="tag-list">
+                        <span class="tag">Narrative</span>
+                        <span class="tag">Systems</span>
+                    </div>
+                </article>
+
+                <article class="card project-card featured placeholder empty-slot" aria-label="Project slot coming soon">
+                    <div class="project-kicker">Coming soon</div>
+                    <h3 class="project-title">Untitled</h3>
+                    <p>Another project slot — details coming soon.</p>
+                    <div class="placeholder-media" role="img" aria-label="Empty project placeholder">
+                        <span>Reserved for next project</span>
+                    </div>
+                    <div class="tag-list">
+                        <span class="tag">TBD</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="section-head stack">
+                <h2>About Me</h2>
+            </div>
+
+            <div class="about-intro">
                 <div class="eyebrow">Level Designer / Environmental Experience Designer</div>
-                <h1>Chris Wang</h1>
-                <p class="role">I build level spaces that turn story context into player-driven decisions.</p>
-                <p class="hero-copy">
+                <h3 class="about-name">Chris Wang</h3>
+                <p class="about-lead">I build level spaces that turn story context into player-driven decisions.</p>
+                <p class="about-body">
                     My primary focus is level design, environmental storytelling, player agency, and spatial gameplay structure.
                     I am especially interested in action, shooter, RPG, and immersive gameplay spaces where exploration,
                     combat pressure, and narrative context work as one system.
                 </p>
-
-            </div>
-
-            <aside class="hero-side">
-                <h2>Quick Profile</h2>
-                <ul class="quick-list">
-                    <li><strong>Target Roles:</strong> Level Designer / Mission Designer / Encounter Designer</li>
-                    <li><strong>Core Strength:</strong> Environmental storytelling + player choice + spatial pacing</li>
-                    <li><strong>Tools:</strong> Unreal Engine 5, Blueprint, whitebox/blockout, design documentation</li>
-                    <li><strong>Contact:</strong> <a href="mailto:contact@chriswang-gamedesigner.com">contact@chriswang-gamedesigner.com</a></li>
-                </ul>
-            </aside>
-        </header>
-
-        <section id="about">
-            <div class="section-head">
-                <h2>About</h2>
-                <p>
+                <p class="about-body">
                     I approach level design as gameplay architecture: a level should not only contain gameplay,
                     but actively shape what the player notices, chooses, risks, and remembers.
                 </p>
             </div>
 
-            <div class="pillars">
+            <div class="about-profile">
+                <h3 class="about-subhead">Quick Profile</h3>
+                <ul class="quick-profile-grid">
+                    <li>
+                        <strong>Target Roles</strong>
+                        <span>Level Designer / Mission Designer / Encounter Designer</span>
+                    </li>
+                    <li>
+                        <strong>Core Strength</strong>
+                        <span>Environmental storytelling + player choice + spatial pacing</span>
+                    </li>
+                    <li>
+                        <strong>Tools</strong>
+                        <span>Unreal Engine 5, Blueprint, whitebox/blockout, design documentation</span>
+                    </li>
+                    <li>
+                        <strong>Contact</strong>
+                        <span><a href="mailto:contact@chriswang-gamedesigner.com">contact@chriswang-gamedesigner.com</a></span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="pillars about-pillars">
                 <div class="pillar">
                     <strong>Spatial Clarity</strong>
                     <span>Readable routes, landmarks, sightlines, and progression signals.</span>
@@ -88,81 +196,6 @@
             </div>
         </section>
 
-                <section id="level-projects">
-            <div class="section-head stack">
-                <h2>Featured Projects</h2>
-                <p>Playable work that shows how level space, systems and iteration shape player decisions.</p>
-            </div>
-
-            <div class="grid two featured-projects">
-                <article class="card project-card featured">
-      <div class="project-kicker">Solo project · Playable V0.2</div><h3 class="project-title"><a href="gonggong.html" target="_blank" rel="noopener">The Wrath of Gonggong<span class="sr-only"> (opens in a new tab)</span></a></h3>
-      <p>Explore mountain villages, create paths across water, escape an avalanche and adapt to a changing boss arena. One tool takes on different roles as the level changes the pressure around it.</p>
-      <div class="carousel" role="region" aria-roledescription="carousel" aria-label="The Wrath of Gonggong screenshots" data-carousel>
-        <div class="carousel-viewport" tabindex="0" aria-label="Project screenshots. Use the left and right arrow keys to change images.">
-          <div class="carousel-track"><figure class="carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 6" data-caption="Cave pool · Learning to create ice">
-          <img src="assets/images/ice-learning.jpg" alt="The player stands on an ice platform while crossing the cave pool" width="1476" height="762" loading="lazy" decoding="async" draggable="false">
-        </figure>
-<figure class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 6" data-caption="Taoyuan waters · Choosing a route">
-          <img src="assets/images/ice-choice.jpg" alt="Annotated gameplay view of the bridge route and the direct route across water" width="1563" height="785" loading="lazy" decoding="async" draggable="false">
-        </figure>
-<figure class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 6" data-caption="Sheltered valley · The revised troll encounter">
-          <img src="assets/images/troll-after.jpg" alt="Three trolls inside the revised encounter with its ice wall visible" width="1269" height="639" loading="lazy" decoding="async" draggable="false">
-        </figure>
-<figure class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 6" data-caption="Avalanche · Making the threat clearer">
-          <img src="assets/images/avalanche-after.jpg" alt="The revised avalanche front with larger and more densely arranged snowballs" width="1263" height="617" loading="lazy" decoding="async" draggable="false">
-        </figure>
-<figure class="carousel-slide" role="group" aria-roledescription="slide" aria-label="5 of 6" data-caption="Avalanche river · Crossing under pressure">
-          <img src="assets/images/ice-pressure.jpg" alt="The river and distant cave ahead of the player during the escape" width="1473" height="747" loading="lazy" decoding="async" draggable="false">
-        </figure>
-<figure class="carousel-slide" role="group" aria-roledescription="slide" aria-label="6 of 6" data-caption="Boss cave · Creating safe footing">
-          <img src="assets/images/ice-combat.jpg" alt="The player uses a created ice platform during the boss encounter" width="1521" height="783" loading="lazy" decoding="async" draggable="false">
-        </figure></div>
-          <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous screenshot" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
-          <button class="carousel-arrow carousel-next" type="button" aria-label="Next screenshot" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
-        </div>
-        <div class="carousel-footer">
-          <p class="carousel-caption">Cave pool · Learning to create ice</p>
-        </div>
-        <span class="sr-only carousel-announcement" aria-live="polite" aria-atomic="true"></span>
-      </div>
-      <div class="tag-list"><span class="tag">Level Design</span><span class="tag">Ice Creation</span><span class="tag">Encounter Design</span><span class="tag">Playtest Iteration</span><span class="tag">Unreal Engine 5.7</span></div>
-    </article>
-
-                <article class="card project-card featured placeholder" aria-label="Blessing project placeholder">
-                    <div class="project-kicker">In progress · Placeholder</div>
-                    <h3 class="project-title">Blessing <span class="title-zh">福报</span></h3>
-                    <p>A systems-forward prototype about institutional “blessings.” Case study and playable build coming soon.</p>
-                    <div class="placeholder-media" role="img" aria-label="Screenshot placeholder for Blessing">
-                        <span>Project media coming soon</span>
-                    </div>
-                    <div class="tag-list"><span class="tag">System Design</span><span class="tag">Satire</span><span class="tag">Prototype</span></div>
-                </article>
-            </div>
-        </section>
-
-<section id="skills">
-            <div class="section-head">
-                <h2>Skills</h2>
-                <p>
-                    Level design and gameplay implementation, supported by testing, documentation and integration in Unreal Engine.
-                </p>
-            </div>
-
-            <div class="tag-list">
-                <span class="tag">Level Design</span>
-                <span class="tag">Environmental Storytelling</span>
-                <span class="tag">Mission Design</span>
-                <span class="tag">Encounter Flow</span>
-                <span class="tag">Player Agency</span>
-                <span class="tag">Spatial Readability</span>
-                <span class="tag">UE5 Whiteboxing</span>
-                <span class="tag">Blueprint Prototyping</span>
-                <span class="tag">Design Documentation</span>
-                <span class="tag">Gameplay Analysis</span>
-            </div>
-        </section>
-
         <section id="contact">
             <div class="section-head">
                 <h2>Contact</h2>
@@ -171,10 +204,6 @@
                 </p>
             </div>
         </section>
-
-        <footer>
-            <p>© 2026 Chris Wang. Level Designer Portfolio.</p>
-        </footer>
     </main>
 
 </body>
