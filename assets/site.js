@@ -87,9 +87,8 @@
       }
     } else {
       s.classList.add("is-text");
-      s.innerHTML = `<div class="t-title"></div><div class="t-note"></div><div class="t-meta label"></div>`;
+      s.innerHTML = `<div class="t-title"></div><div class="t-meta label"></div>`;
       s.querySelector(".t-title").textContent = q.p.title;
-      s.querySelector(".t-note").textContent = q.p.note || "";
       s.querySelector(".t-meta").textContent = q.p.meta || "";
     }
     stage.appendChild(s);
@@ -141,14 +140,16 @@
     tabs.forEach((t, i) => t.setAttribute("aria-selected", String(i === q.pi)));
     titleEl.textContent = q.p.title;
     if (q.p.link) titleEl.href = q.p.link; else titleEl.removeAttribute("href");
-    summaryEl.textContent = q.img ? (q.p.summary || "") : "";
+    summaryEl.textContent = q.p.summary || "";
     countEl.textContent = q.img ? `${pad(q.ii + 1)} / ${pad(q.total)}` : "";
     if (q.p.link) {
-      linkEl.hidden = false;
+      linkEl.classList.remove("is-off");
+      linkEl.removeAttribute("tabindex");
       linkEl.href = q.p.link;
       linkEl.textContent = `${q.p.linkLabel || "View project"} →`;
     } else {
-      linkEl.hidden = true;
+      linkEl.classList.add("is-off");
+      linkEl.tabIndex = -1;
     }
     // eager-load the next image
     const nx = queue[(cur + 1) % queue.length];

@@ -36,7 +36,7 @@ window.SITE = {
       id: "gonggong",
       title: "The Wrath of Gonggong",
       meta: "Level & gameplay design · UE 5.7 · Playable V0.2",
-      // One line under the title in the reel caption.
+      // One line under the title in the reel caption (required; kept to one line).
       summary: "A third-person level where one tool — creating ice — keeps changing its role: crossing, choosing, escaping, fighting.",
       link: "gonggong.html",
       linkLabel: "View project",
@@ -55,7 +55,7 @@ window.SITE = {
       meta: "Incremental game · In development",
       link: null,
       // No images yet: shown as a text slide.
-      note: "A small shop grows into a corporation. Every efficiency upgrade costs someone.",
+      summary: "A small shop grows into a corporation. Every efficiency upgrade costs someone.",
       images: []
     },
     {
@@ -63,7 +63,7 @@ window.SITE = {
       title: "CodePunk",
       meta: "Branching narrative · In development",
       link: null,
-      note: "Ordinary life, three years, a phone that decides where you may go.",
+      summary: "Ordinary life, three years, a phone that decides where you may go.",
       images: []
     }
   ],
