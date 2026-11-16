@@ -40,6 +40,21 @@
     });
   });
 
+  /* ---------- "Work" link: centre the reel below the top bar ---------- */
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href="#work"]');
+    if (!a) return;
+    const r = document.querySelector("[data-reel]");
+    if (!r) return;
+    e.preventDefault();
+    const bar = document.querySelector(".topbar").offsetHeight;
+    const rect = r.getBoundingClientRect();
+    const free = window.innerHeight - bar;
+    const y = window.scrollY + rect.top - bar - Math.max(0, (free - rect.height) / 2);
+    window.scrollTo({ top: y, behavior: "smooth" });
+    history.replaceState(null, "", "#work");
+  });
+
   /* ---------- Reel: one flat queue across all projects ---------- */
   const reel = $("[data-reel]");
   const cfg = Object.assign({ interval: 5500, transition: "fade", pauseOnHover: true }, S.carousel);
@@ -105,8 +120,23 @@
   let started = 0;
   let remaining = cfg.interval;
 
+  const amb = Array.from(document.querySelectorAll(".work-ambient span"));
+  let ambI = 0;
+  function ambient(src) {
+    const nextEl = amb[(ambI + 1) % 2];
+    if (src) {
+      nextEl.style.backgroundImage = `url("${src}")`;
+      nextEl.classList.add("on");
+      amb[ambI].classList.remove("on");
+      ambI = (ambI + 1) % 2;
+    } else {
+      amb.forEach((a) => a.classList.remove("on"));
+    }
+  }
+
   function render() {
     const q = queue[cur];
+    ambient(q.img ? q.img.src : null);
     slides.forEach((s, i) => s.classList.toggle("is-active", i === cur));
     tabs.forEach((t, i) => t.setAttribute("aria-selected", String(i === q.pi)));
     titleEl.textContent = q.p.title;
