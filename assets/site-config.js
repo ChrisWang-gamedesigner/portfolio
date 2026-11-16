@@ -36,6 +36,8 @@ window.SITE = {
       id: "gonggong",
       title: "The Wrath of Gonggong",
       meta: "Level & gameplay design · UE 5.7 · Playable V0.2",
+      // One line under the title in the reel caption.
+      summary: "A third-person level where one tool — creating ice — keeps changing its role: crossing, choosing, escaping, fighting.",
       link: "gonggong.html",
       linkLabel: "View project",
       images: [

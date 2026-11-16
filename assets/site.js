@@ -102,8 +102,7 @@
     b.type = "button";
     b.className = "reel-tab";
     b.setAttribute("role", "tab");
-    b.innerHTML = `<span></span><span class="bar"><i></i></span>`;
-    b.firstChild.textContent = p.title;
+    b.textContent = p.title;
     b.addEventListener("click", () => go(queue.findIndex((q) => q.pi === pi), true));
     tabsEl.appendChild(b);
     return b;
@@ -112,6 +111,7 @@
   const titleEl = $(".reel-title", reel);
   const countEl = $(".reel-count", reel);
   const linkEl = $(".reel-link", reel);
+  const summaryEl = $(".reel-summary", reel);
   const pad = (n) => String(n).padStart(2, "0");
 
   let cur = -1;
@@ -140,6 +140,8 @@
     slides.forEach((s, i) => s.classList.toggle("is-active", i === cur));
     tabs.forEach((t, i) => t.setAttribute("aria-selected", String(i === q.pi)));
     titleEl.textContent = q.p.title;
+    if (q.p.link) titleEl.href = q.p.link; else titleEl.removeAttribute("href");
+    summaryEl.textContent = q.img ? (q.p.summary || "") : "";
     countEl.textContent = q.img ? `${pad(q.ii + 1)} / ${pad(q.total)}` : "";
     if (q.p.link) {
       linkEl.hidden = false;
@@ -151,18 +153,6 @@
     // eager-load the next image
     const nx = queue[(cur + 1) % queue.length];
     if (nx.img) new Image().src = nx.img.src;
-  }
-
-  // progress bar under the active project tab
-  function paintBar() {
-    const q = queue[cur];
-    const elapsed = paused ? cfg.interval - remaining : cfg.interval - remaining + (performance.now() - started);
-    const within = (q.ii + Math.min(elapsed / cfg.interval, 1)) / q.total;
-    tabs.forEach((t, i) => {
-      const bar = t.querySelector(".bar i");
-      bar.style.width = i === q.pi ? `${within * 100}%` : i < q.pi ? "100%" : "0%";
-    });
-    requestAnimationFrame(paintBar);
   }
 
   function schedule(ms) {
@@ -207,7 +197,6 @@
   });
 
   go(0);
-  requestAnimationFrame(paintBar);
 
   /* ---------- Dust in the light ---------- */
   const canvas = $(".hero-dust");
